@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="38e2ae77-8881-4409-b2f4-3b7b43ecb93b" name="wuyq@POS744 2011-04-06 21:15:40" runUser="POS744\wuyq" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="0ba809b6-7e05-4f0e-a3d9-7ff8e45887e5">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="wuyq_POS744 2011-04-06 21_15_40">
+      <DeploymentItem filename="d:\MyDocs\Visual Studio 2010\Projects\GitExtTest\BusinessTier\bin\Debug\BusinessTier.dll" />
+      <DeploymentItem filename="d:\MyDocs\Visual Studio 2010\Projects\GitExtTest\PersistData\bin\Debug\PersistData.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-04-06T21:15:40.2343750+08:00" queuing="2011-04-06T21:15:42.3906250+08:00" start="2011-04-06T21:15:42.6406250+08:00" finish="2011-04-06T21:16:08.0625000+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="d:\mydocs\visual studio 2010\projects\gitexttest\testproject_persist\bin\debug\testproject_persist.dll" id="f98ae9e8-ea37-41ef-f607-119e6fe0cae0">
+      <Execution id="85f7bed6-8a86-4e81-b3c2-245d0d929470" />
+      <TestMethod codeBase="d:/MyDocs/Visual Studio 2010/Projects/GitExtTest/TestProject_Persist/bin/Debug/TestProject_Persist.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject_Persist.PersitDataUnitTest, TestProject_Persist, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="f98ae9e8-ea37-41ef-f607-119e6fe0cae0" executionId="85f7bed6-8a86-4e81-b3c2-245d0d929470" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="85f7bed6-8a86-4e81-b3c2-245d0d929470" testId="f98ae9e8-ea37-41ef-f607-119e6fe0cae0" testName="TestMethod1" computerName="POS744" duration="00:00:24.0967117" startTime="2011-04-06T21:15:42.7187500+08:00" endTime="2011-04-06T21:16:07.9062500+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="85f7bed6-8a86-4e81-b3c2-245d0d929470">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProject_Persist.PersitDataUnitTest.TestMethod1 threw exception: 
+System.ObjectDisposedException: Session is closed!
+Object name: 'ISession'.</Message>
+          <StackTrace>    at NHibernate.Impl.AbstractSessionImpl.ErrorIfClosed()
+   at NHibernate.Impl.AbstractSessionImpl.CheckAndUpdateSessionStatus()
+   at NHibernate.Impl.SessionImpl.BeginTransaction()
+   at PersistData.DishItemObjs.GetAllDishItem() in d:\MyDocs\Visual Studio 2010\Projects\GitExtTest\PersistData\DishItemObjs.cs:line 19
+   at RestaurantApp.RestaurantBiz.getDishItems() in d:\MyDocs\Visual Studio 2010\Projects\GitExtTest\BusinessTier\RestaurantBiz.cs:line 24
+   at TestProject_Persist.PersitDataUnitTest.TestMethod1() in d:\MyDocs\Visual Studio 2010\Projects\GitExtTest\TestProject_Persist\PersitDataUnitTest.cs:line 23
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

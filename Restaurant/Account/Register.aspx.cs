@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Account_Register : System.Web.UI.Page
+{
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        RegisterUser.ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
+
+        if (!IsPostBack)
+        {
+            RegisterUser.Email = "wuyq@changyi.com";
+            ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("Password")).Text = "123456";
+            ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("ConfirmPassword")).Text = "123456";
+
+            ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("TextAddress")).Text = "1-53 Blamey Street";
+            ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("TextPhone")).Text = "12345678";
+            
+            
+        }
+    }
+
+    protected void RegisterUser_CreatedUser(object sender, EventArgs e)
+    {
+        ProfileCommon p = new ProfileCommon();
+
+        p.Initialize(RegisterUser.UserName, true);
+
+        p.Address = ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("TextAddress")).Text;
+        p.Phone = ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("TextPhone")).Text;
+
+        //// Save the profile - must be done since we explicitly created this profile instance
+        p.Save();
+
+        FormsAuthentication.SetAuthCookie(RegisterUser.UserName, false /* createPersistentCookie */);
+
+        string continueUrl = RegisterUser.ContinueDestinationPageUrl;
+        if (String.IsNullOrEmpty(continueUrl))
+        {
+            continueUrl = "~/";
+        }
+        Response.Redirect(continueUrl);
+    }
+
+}
