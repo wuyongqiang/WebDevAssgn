@@ -1,0 +1,57 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+   namespace="PersistData" assembly="PersistData">
+
+  <class
+      name="TOrderItem"
+      table="ORDER_ITEMS"
+      dynamic-update="true">
+
+    <id
+        name="Id"
+        column="ORDER_ITEM_ID">
+
+      <generator class="native"/>
+
+    </id>
+
+    <property
+        name="DishId"
+        column="DISHID"
+        not-null="true"/>
+
+    <property
+        name="DishName"
+        column="DISHNAME"
+        not-null="true"/>
+
+    <property
+        name="Price"
+        column="PRICE"
+        not-null="true"/>
+
+    <property
+        name="Amount"
+        column="AMOUNT"
+        not-null="true"/>
+
+    <property
+        name="SubPrice"
+        column="SUBPRICE"
+        not-null="true"/>
+
+    <property
+        name="Text"
+        column="TEXT"
+        not-null="true"/>
+
+   
+
+    <many-to-one
+        name="Order"
+        column="ORDER_ID"
+        not-null="true"/>
+
+  </class>
+
+</hibernate-mapping>

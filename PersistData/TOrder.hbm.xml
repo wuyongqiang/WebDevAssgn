@@ -1,0 +1,63 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+     namespace="PersistData" assembly="PersistData">
+
+  <class
+      name="TOrder"
+      table="TOrder"
+      lazy="true">
+
+    <id
+        name="Id"
+        column="ORDER_ID">
+
+      <generator class="native"/>
+
+    </id>
+
+    <property
+        name="Name"
+        column="NAME"
+        not-null="true"
+        unique="false"/>
+
+    <property
+        name="Address"
+        column="ADDRESS"
+        not-null="true"
+        unique="false"/>
+
+    <property
+        name="Phone"
+        column="PHONE"
+        not-null="true"
+        unique="false"/>
+
+
+    <property
+          name="AddText"
+          column="ADDTEXT"
+          not-null="true"
+          unique="false"/>
+    
+
+    <property
+       name="OrderTime"
+       column="ORDER_TIME"
+       not-null="true"/>
+
+    <bag
+        name="Items"
+        inverse="true"
+        lazy="true"
+        order-by="DATE_TIME"
+        cascade="all">
+
+      <key column="ORDER_ITEM_ID"/>
+      <one-to-many class="TOrderItem"/>
+
+    </bag>
+
+  </class>
+
+</hibernate-mapping>

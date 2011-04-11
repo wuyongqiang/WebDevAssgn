@@ -8,9 +8,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Restaurant", "Restaurant", "{10450DDF-FAE2-4EAE-BA6D-41C01280422C}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Restaurant", "Restaurant\", "{10450DDF-FAE2-4EAE-BA6D-41C01280422C}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{8D042685-9266-4526-A138-C779210DC09C}|BusinessTier.dll;{275A1E78-6F8F-45C2-BA6E-40084A03605F}|PersistData.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Restaurant"
 		Debug.AspNetCompiler.PhysicalPath = "Restaurant\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Restaurant\"

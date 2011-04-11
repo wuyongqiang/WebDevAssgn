@@ -60,13 +60,19 @@
             <td class="style1" style="vertical-align: top" >
               
                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="4" ForeColor="#333333" GridLines="None">
+                    CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="Id" 
+                    onrowcancelingedit="GridView2_RowCancelingEdit" 
+                    onrowdeleted="GridView2_RowDeleted" onrowdeleting="GridView2_RowDeleting" 
+                    onrowediting="GridView2_RowEditing" onrowupdated="GridView2_RowUpdated" 
+                    onrowupdating="GridView2_RowUpdating">
                     <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
                     <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
                     <Columns>
-                        <asp:BoundField DataField="Name" HeaderText="Name" />
+                        <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="True" />
                         <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
-                        <asp:BoundField DataField="Price" HeaderText="Price" />
+                        <asp:BoundField DataField="SubPrice" HeaderText="Price" ReadOnly="True" />
+                        <asp:CommandField ShowEditButton="True" />
+                        <asp:CommandField ShowDeleteButton="True" />
                     </Columns>
                     <PagerTemplate>                        
                     </PagerTemplate>

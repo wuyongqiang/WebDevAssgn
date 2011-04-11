@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="7240d4e2-0326-4fca-af33-3d1091761e1d" name="wuyq@POS744 2011-04-09 21:17:37" runUser="POS744\wuyq" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="0ba809b6-7e05-4f0e-a3d9-7ff8e45887e5">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="wuyq_POS744 2011-04-09 21_17_37">
+      <DeploymentItem filename="C:\Documents and Settings\wuyq\WebDevAssgn\BusinessTier\bin\Debug\BusinessTier.dll" />
+      <DeploymentItem filename="C:\Documents and Settings\wuyq\WebDevAssgn\PersistData\bin\Debug\PersistData.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-04-09T21:17:37.0000000+08:00" queuing="2011-04-09T21:17:40.0156250+08:00" start="2011-04-09T21:17:40.2031250+08:00" finish="2011-04-09T21:18:10.1093750+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="c:\documents and settings\wuyq\webdevassgn\testproject_persist\bin\debug\testproject_persist.dll" id="f98ae9e8-ea37-41ef-f607-119e6fe0cae0">
+      <Execution id="c01cd413-229b-47aa-a866-90909110b08d" />
+      <TestMethod codeBase="C:/Documents and Settings/wuyq/WebDevAssgn/TestProject_Persist/bin/Debug/TestProject_Persist.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject_Persist.PersitDataUnitTest, TestProject_Persist, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="f98ae9e8-ea37-41ef-f607-119e6fe0cae0" executionId="c01cd413-229b-47aa-a866-90909110b08d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="c01cd413-229b-47aa-a866-90909110b08d" testId="f98ae9e8-ea37-41ef-f607-119e6fe0cae0" testName="TestMethod1" computerName="POS744" duration="00:00:27.9420110" startTime="2011-04-09T21:17:40.2968750+08:00" endTime="2011-04-09T21:18:09.9218750+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c01cd413-229b-47aa-a866-90909110b08d">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method TestProject_Persist.PersitDataUnitTest.TestMethod1 threw exception: 
+System.TypeInitializationException: The type initializer for 'PersistData.NHibernateHelper' threw an exception. ---&gt; NHibernate.MappingException: TestProject_Persist.TOrder.hbm.xml(22,9): XML validation error: The 'unique' attribute is invalid - The value 'fasle' is invalid according to its datatype 'http://www.w3.org/2001/XMLSchema:boolean' - The string 'fasle' is not a valid Boolean value. ---&gt; System.Xml.Schema.XmlSchemaValidationException: The 'unique' attribute is invalid - The value 'fasle' is invalid according to its datatype 'http://www.w3.org/2001/XMLSchema:boolean' - The string 'fasle' is not a valid Boolean value. ---&gt; System.FormatException: The string 'fasle' is not a valid Boolean value.</Message>
+          <StackTrace> 
+ --- End of inner exception stack trace ---
+ 
+ --- End of inner exception stack trace ---
+    at NHibernate.Cfg.Configuration.LogAndThrow(Exception exception)
+   at NHibernate.Cfg.Configuration.ValidationHandler(Object o, ValidationEventArgs args)
+   at System.Xml.Schema.XmlSchemaValidator.SendValidationEvent(XmlSchemaValidationException e, XmlSeverityType severity)
+   at System.Xml.Schema.XmlSchemaValidator.SendValidationEvent(String code, String[] args, Exception innerException)
+   at System.Xml.Schema.XmlSchemaValidator.CheckAttributeValue(Object value, SchemaAttDef attdef)
+   at System.Xml.Schema.XmlSchemaValidator.ValidateAttribute(String lName, String ns, XmlValueGetter attributeValueGetter, String attributeStringValue, XmlSchemaInfo schemaInfo)
+   at System.Xml.Schema.XmlSchemaValidator.ValidateAttribute(String localName, String namespaceUri, XmlValueGetter attributeValue, XmlSchemaInfo schemaInfo)
+   at System.Xml.XsdValidatingReader.ValidateAttributes()
+   at System.Xml.XsdValidatingReader.ProcessElementEvent()
+   at System.Xml.XsdValidatingReader.ProcessReaderEvent()
+   at System.Xml.XsdValidatingReader.Read()
+   at System.Xml.XmlLoader.LoadNode(Boolean skipOverWhitespace)
+   at System.Xml.XmlLoader.LoadDocSequence(XmlDocument parentDoc)
+   at System.Xml.XmlLoader.Load(XmlDocument doc, XmlReader reader, Boolean preserveWhitespace)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at NHibernate.Cfg.Configuration.LoadMappingDocument(XmlReader hbmReader, String name)
+   at NHibernate.Cfg.Configuration.AddXmlReader(XmlReader hbmReader, String name)
+   at NHibernate.Cfg.Configuration.AddInputStream(Stream xmlInputStream, String name)
+   at NHibernate.Cfg.Configuration.AddResource(String path, Assembly assembly)
+   at NHibernate.Cfg.Configuration.AddAssembly(Assembly assembly)
+   at NHibernate.Cfg.Configuration.AddAssembly(String assemblyName)
+   at NHibernate.Cfg.Configuration.DoConfigure(IHibernateConfiguration hc)
+   at NHibernate.Cfg.Configuration.Configure(XmlReader textReader)
+   at NHibernate.Cfg.Configuration.Configure(String fileName, Boolean ignoreSessionFactoryConfig)
+   at NHibernate.Cfg.Configuration.Configure(String fileName)
+   at NHibernate.Cfg.Configuration.Configure()
+   at PersistData.NHibernateHelper..cctor() in C:\Documents and Settings\wuyq\WebDevAssgn\PersistData\NHibernateHelper.cs:line 20
+ --- End of inner exception stack trace ---
+    at PersistData.NHibernateHelper.GetCurrentSession()
+   at PersistData.DishItemObjs.GetAllDishItem() in C:\Documents and Settings\wuyq\WebDevAssgn\PersistData\DishItemObjs.cs:line 18
+   at TestProject_Persist.PersitDataUnitTest.TestMethod1() in C:\Documents and Settings\wuyq\WebDevAssgn\TestProject_Persist\PersitDataUnitTest.cs:line 20
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

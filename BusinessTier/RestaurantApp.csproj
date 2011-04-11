@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrderObj.cs" />
     <Compile Include="RestaurantBiz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TOrderApp.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PersistData\PersistData.csproj">

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="abf6de0e-b86a-417d-8958-3e6f503f4742" name="wuyq@POS744 2011-04-09 20:51:52" runUser="POS744\wuyq" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="0ba809b6-7e05-4f0e-a3d9-7ff8e45887e5">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="wuyq_POS744 2011-04-09 20_51_52">
+      <DeploymentItem filename="C:\Documents and Settings\wuyq\WebDevAssgn\BusinessTier\bin\Debug\BusinessTier.dll" />
+      <DeploymentItem filename="C:\Documents and Settings\wuyq\WebDevAssgn\PersistData\bin\Debug\PersistData.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-04-09T20:51:52.7031250+08:00" queuing="2011-04-09T20:51:59.4375000+08:00" start="2011-04-09T20:52:00.0312500+08:00" finish="2011-04-09T20:53:04.4687500+08:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="c:\documents and settings\wuyq\webdevassgn\testproject_persist\bin\debug\testproject_persist.dll" id="f98ae9e8-ea37-41ef-f607-119e6fe0cae0">
+      <Execution id="0df64536-58bd-4013-b56e-0c05f4ba3200" />
+      <TestMethod codeBase="C:/Documents and Settings/wuyq/WebDevAssgn/TestProject_Persist/bin/Debug/TestProject_Persist.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject_Persist.PersitDataUnitTest, TestProject_Persist, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="f98ae9e8-ea37-41ef-f607-119e6fe0cae0" executionId="0df64536-58bd-4013-b56e-0c05f4ba3200" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="0df64536-58bd-4013-b56e-0c05f4ba3200" testId="f98ae9e8-ea37-41ef-f607-119e6fe0cae0" testName="TestMethod1" computerName="POS744" duration="00:00:59.7255288" startTime="2011-04-09T20:52:00.1718750+08:00" endTime="2011-04-09T20:53:02.2968750+08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0df64536-58bd-4013-b56e-0c05f4ba3200">
+      <Output>
+        <StdOut>first dishSesame Prawn Toast
+4</StdOut>
+        <ErrorInfo>
+          <Message>Test method TestProject_Persist.PersitDataUnitTest.TestMethod1 threw exception: 
+NHibernate.MappingException: Resource not found: PersistData.TOrder.hbm.xml</Message>
+          <StackTrace>    at NHibernate.Cfg.Configuration.LogAndThrow(Exception exception)
+   at NHibernate.Cfg.Configuration.AddResource(String path, Assembly assembly)
+   at NHibernate.Cfg.Configuration.AddClass(Type persistentClass)
+   at PersistData.TOrderObjs.Configure() in C:\Documents and Settings\wuyq\WebDevAssgn\PersistData\OrderObjs.cs:line 18
+   at TestProject_Persist.PersitDataUnitTest.TestMethod1() in C:\Documents and Settings\wuyq\WebDevAssgn\TestProject_Persist\PersitDataUnitTest.cs:line 32
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
