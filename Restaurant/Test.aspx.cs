@@ -14,6 +14,10 @@ public partial class Test : System.Web.UI.Page
         {
             //
             Session["SessionID"] = 10;
+
+            Panel1.Visible = true;
+
+            Calendar1.ShowDayHeader = true;
         }
        
     }
@@ -61,5 +65,16 @@ public partial class Test : System.Web.UI.Page
     protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
     {
         
+    }
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        this.Panel1.Visible = true;
+      
+    }
+    protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+    {
+        Panel1.Visible = false;
+
+        TextBox1.Text = Calendar1.SelectedDate.ToString("yyyy-MM-dd");
     }
 }

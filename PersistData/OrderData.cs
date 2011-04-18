@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 
+using System.Collections.Generic;
+
 using NHibernate;
 using NHibernate.Cfg;
 using PersistData;
@@ -35,18 +37,31 @@ namespace PersistData
             myschema.Create(true, false);
         }
 
-        public TOrder CreateOrder(string name)
+        //private string _name;
+        //private string _address;
+        //private string _phone;
+        //private DateTime _orderTime;
+        //private string _addText;
+        //private string _status;
+        public TOrder CreateOrder(string name,string address,string phone,string text)
         {
             TOrder order = new TOrder();
             order.Name = name;
+            order.Address = address;
+            order.Phone = phone;
+            order.AddText = text;
+            order.OrderTime = DateTime.Now;
+            order.Status = "unprocessed";
             order.Items = new ArrayList();
 
+            
             using (ISession session = _sessions.OpenSession())
             using (ITransaction tx = session.BeginTransaction())
             {
                 session.Save(order);
                 tx.Commit();
             }
+            
 
             return order;
         }
@@ -62,7 +77,7 @@ namespace PersistData
         }
 
         public TOrderItem CreateOrderItem(TOrder order, long dishId, string dishName,
-            double price, double amount, double subPrice, string text)
+            decimal price, decimal amount, decimal subPrice, string text)
         {
             TOrderItem item = new TOrderItem();
             item.DishId = dishId;
@@ -85,7 +100,7 @@ namespace PersistData
         }
 
         public TOrderItem CreateOrderItem(long orderId, long dishId,string dishName,
-            double price, double amount,double subPrice, string text)
+            decimal price, decimal amount, decimal subPrice, string text)
         {
             TOrderItem item = new TOrderItem();
             item.DishId = dishId;
@@ -108,7 +123,7 @@ namespace PersistData
         }
 
         public void UpdateOrderItem(TOrderItem item, long dishId, string dishName,
-            double price, double amount, double subPrice, string text)
+            decimal price, decimal amount, decimal subPrice, string text)
         {
             item.DishId = dishId;
             item.DishName = dishName;
@@ -126,7 +141,7 @@ namespace PersistData
         }
 
         public void UpdateOrderItem(long itemId, long dishId, string dishName,
-            double price, double amount, double subPrice, string text)
+            decimal price, decimal amount, decimal subPrice, string text)
         {
             using (ISession session = _sessions.OpenSession())
             using (ITransaction tx = session.BeginTransaction())
@@ -171,21 +186,19 @@ namespace PersistData
             using (ISession session = _sessions.OpenSession())
             using (ITransaction tx = session.BeginTransaction())
             {
-                IQuery q = session.CreateQuery(
-                    "from TOrder as order " +
-                    "left outer join fetch order.Items " +
-                    "where order.id = :orderId"
-                );
-                q.SetParameter("orderId", orderId);
-                order = (TOrder)q.List()[0];
+                order = session.Load<TOrder>(orderId);
+                IList list = order.Items;
+
+                int count = order.Items.Count;
                 tx.Commit();
             }
 
             return order;
         }
 
-        public TOrder GetOrderAndAllItems(string Name)
+        public List<TOrder> GetOrdersAndAllItems(DateTime min, DateTime max, string Name)
         {
+            List<TOrder> rslt = new List<TOrder>();
             TOrder order = null;
 
             using (ISession session = _sessions.OpenSession())
@@ -193,16 +206,47 @@ namespace PersistData
             {
                 IQuery q = session.CreateQuery(
                     "from TOrder as order " +
-                    "left outer join fetch order.Items " +
-                    "where order.Name = :orderName"
+                    "where order.UserName = :userName "+
+                    "and order.OrderTime>=:beginDate " +
+                    "and order.OrderTime<=:endDate "
+                    
                 );
-                q.SetParameter("orderName", Name);
-                order = (TOrder)q.List()[0];
+                q.SetParameter("userName", Name);
+                q.SetParameter("beginDate", min);
+                q.SetParameter("endDate", max);
+
+                for (int i = 0; i < q.List().Count; i++)
+                {
+                    order = (TOrder)q.List()[i];
+                    int count = order.Items.Count;
+                    rslt.Add(order);
+                }
+
                 tx.Commit();
             }
 
-            return order;
+            return rslt;
         }
+
+        //public TOrder GetOrderAndAllItems(long orderId)
+        //{
+        //    TOrder order = null;
+
+        //    using (ISession session = _sessions.OpenSession())
+        //    using (ITransaction tx = session.BeginTransaction())
+        //    {
+        //        IQuery q = session.CreateQuery(
+        //            "from TOrder as order " +
+        //            "left outer join fetch order.Items " +
+        //            "where order.Id = :orderId"
+        //        );
+        //        q.SetParameter("orderId", orderId);
+        //        order = (TOrder)q.List()[0];
+        //        tx.Commit();
+        //    }
+
+        //    return order;
+        //}
 
         public IList ListOrdersAndItems(DateTime minDate, DateTime maxDate)
         {

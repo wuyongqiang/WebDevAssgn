@@ -23,6 +23,7 @@ namespace PersistData
             private DateTime _orderTime;
             private string _addText;
             private string _status;
+            private string _userName;
 
             private IList _items;
 
@@ -70,10 +71,30 @@ namespace PersistData
                 set { _status = value; }
             }
 
+            public virtual string UserName
+            {
+                get { return _userName; }
+                set { _userName = value; }
+            }
+
             public virtual IList Items
             {
                 get { return _items; }
                 set { _items = value; }
+            }
+
+            public virtual decimal Price
+            {
+                get
+                {
+                    decimal price = 0;
+
+                    foreach (TOrderItem item in _items)
+                    {
+                        price += item.SubPrice;
+                    }
+                    return price;
+                }
             }
         }
   

@@ -73,52 +73,7 @@
                                         ValidationGroup="ChangeUserPassword"></asp:CompareValidator>
                                 </td>
                             </tr>
-                            <tr>
-                            <td>
-                                <asp:CheckBox ID="CheckBoxChangePWD" runat="server" Text="Not Change Password" AutoPostBack="True" />
-                            </td>
-                            <td align="center" colspan="2" style="color:Red;">
-                                    <asp:Literal ID="LiteralNoPwdChange" runat="server" EnableViewState="False"></asp:Literal>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="center" colspan="2" style="color:Red;">
-                                    <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
-                                </td>
-                            </tr>
-                                <tr>
-                                     <td align="center" colspan="2" style="color:Red;">
-                                                    <asp:Literal ID="Literal1" runat="server" EnableViewState="False"></asp:Literal>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                            <td align="center" colspan="2" 
-                                                    style="color:White;background-color:#990000;font-weight:bold;">
-                                                    Input the following to help filling the order</td>
-                                            </tr>
-                                            <tr>
-                                            <td align="right">
-                                                    <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="TextAddress">Address:</asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:TextBox ID="TextAddress" runat="server"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                                                        ControlToValidate="TextAddress" ErrorMessage="Mandatory“Address”。" ToolTip="Mandatory“Address”。" 
-                                                        ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                            <td align="right">
-                                                    <asp:Label ID="PHoneLabel" runat="server" AssociatedControlID="TextPhone">Phone:</asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:TextBox ID="TextPhone" runat="server"></asp:TextBox>
-                                    
-                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextPhone"
-                                                        ErrorMessage="phone number format not correct" ValidationExpression="\d{8,10}"></asp:RegularExpressionValidator>
-                                    
-                                                </td>
-                                            </tr>
+                            
                             <tr>
                                 <td align="right">
                                     <asp:Button ID="ChangePasswordPushButton" runat="server" 

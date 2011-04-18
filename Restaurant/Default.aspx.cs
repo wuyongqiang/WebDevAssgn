@@ -97,6 +97,16 @@ public partial class _Default : System.Web.UI.Page
                 }
             }
 
+
+            DataRow r = GvOrder1.TableOrder.Rows.Add();
+
+            for (int i = 0; i < r.Table.Columns.Count; i++)
+            {
+                r[i] = rOrder[i];
+            }
+
+            GvOrder1.Update();
+
             GridView2.DataSource = dtOrder;
             GridView2.DataBind();
 
@@ -123,6 +133,7 @@ public partial class _Default : System.Web.UI.Page
             if ((long)r[0] == id)
             {
                 dtOrder.Rows.Remove(r);
+                GvOrder1.TableOrder.Rows.RemoveAt(count);
                 break;
             }
         }

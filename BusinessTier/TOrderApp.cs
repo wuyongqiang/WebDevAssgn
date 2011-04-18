@@ -17,6 +17,11 @@ namespace RestaurantApp
 
         public List<TAppOrderItem> Items{get;set;}
 
+        public TAppOrder()
+        {
+            Items = new List<TAppOrderItem>();
+        }
+
     }
 
     public class TAppOrderItem
@@ -24,9 +29,9 @@ namespace RestaurantApp
         public long Id{get;set;}
         public long DishId{get;set;}
         public string DishName{get;set;}
-        public double Price{get;set;}
-        public double Amount{get;set;}
-        public double SubPrice{get;set;}
+        public decimal Price{get;set;}
+        public decimal Amount { get; set; }
+        public decimal SubPrice { get; set; }
         public string Text{get;set;}
         public TAppOrder Order{get;set;}
 

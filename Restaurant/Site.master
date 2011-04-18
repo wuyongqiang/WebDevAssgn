@@ -37,6 +37,14 @@
                                 Value="Create an Account"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="~/Account/ChangePassword.aspx" 
                                 Text="Modify my Account" Value="Modify my Account"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Account/ChangeDetail.aspx" Text="Change my Detail" 
+                                Value="Change my Detail"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Order" Value="Order">
+                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="place order" 
+                                Value="place order"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Order/OrderList.aspx" Text="my orders" 
+                                Value="my orders"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
                     </Items>

@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
+<%@ Register src="UserControl/GvOrder.ascx" tagname="GvOrder" tagprefix="uc1" %>
+
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
@@ -123,4 +125,10 @@
                 &nbsp;</td>
         </tr>
     </table>
+    <div>
+                
+                
+    <uc1:GvOrder ID="GvOrder1"  runat="server"/>    
+    
+    </div>
 </asp:Content>

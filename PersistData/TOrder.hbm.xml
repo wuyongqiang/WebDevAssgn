@@ -46,14 +46,25 @@
        column="ORDER_TIME"
        not-null="true"/>
 
+    <property
+         name="Status"
+         column="STATUS"
+         not-null="false"/>
+    
+    
+    <property
+         name="UserName"
+         column="USER_NAME"
+         not-null="false"/>
+    
     <bag
         name="Items"
         inverse="true"
         lazy="true"
-        order-by="DATE_TIME"
+        order-by="ORDER_ID"
         cascade="all">
 
-      <key column="ORDER_ITEM_ID"/>
+      <key column="ORDER_ID"/>
       <one-to-many class="TOrderItem"/>
 
     </bag>

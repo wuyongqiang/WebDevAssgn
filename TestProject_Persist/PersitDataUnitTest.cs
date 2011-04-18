@@ -7,6 +7,10 @@ using System.Data;
 using System.IO;
 
 using PersistData;
+using NHibernate;
+using NHibernate.Cfg;
+
+using NHibernate.Tool.hbm2ddl;
 
 using RestaurantApp;
 namespace TestProject_Persist
@@ -14,6 +18,93 @@ namespace TestProject_Persist
     [TestClass]
     public class PersitDataUnitTest
     {
+
+        public void saveOrder()
+        {
+            ISessionFactory _sessions;
+            Configuration cfg = new Configuration().Configure();
+            _sessions = cfg.BuildSessionFactory();
+
+            TOrderData ob = new TOrderData();
+            ob.Configure();
+
+            TOrder od = ob.CreateOrder("test","order.Address", "order.Phone", "order.AddText");
+            //od.Id = order.Id;
+            //od.Name = order.Name;
+            //od.OrderTime = order.OrderTime;
+            //od.Phone = order.Phone;
+            //od.Address = order.Address;
+            //od.AddText = order.AddText;
+
+            using (ISession session = _sessions.OpenSession())
+            using (ITransaction tx = session.BeginTransaction())
+            {
+
+                od = session.Load<TOrder>(od.Id);
+               
+
+
+
+
+                for (int i = 0; i < 8; i++)
+                {
+                    TOrderItem oditem = new TOrderItem();
+                    oditem.Order = od;
+                    oditem.Price = 9.99M;
+                    oditem.Amount = 2;
+                    oditem.SubPrice = 19.99M;
+                    oditem.Text = "test" + od.Id;
+                    oditem.DishId = 1;
+                    oditem.DishName = "test" + i;
+                    //oditem.Id = -1;
+
+                    od.Items.Add(oditem);
+                    
+                }
+                session.Flush();
+                tx.Commit();
+            }
+
+           
+        }
+
+
+        public void saveOrder1()
+        {
+            ISessionFactory _sessions;
+            Configuration cfg = new Configuration().Configure();
+            _sessions = cfg.BuildSessionFactory();
+
+            TOrderData ob = new TOrderData();
+            ob.Configure();
+
+            TOrder od = ob.CreateOrder("test", "order.Address", "order.Phone", "order.AddText");
+            //od.Id = order.Id;
+            //od.Name = order.Name;
+            //od.OrderTime = order.OrderTime;
+            //od.Phone = order.Phone;
+            //od.Address = order.Address;
+            //od.AddText = order.AddText;
+
+            
+
+
+                for (int i = 0; i < 8; i++)
+                {
+                    TOrderItem oditem = new TOrderItem();
+                    oditem.Order = od;
+                    oditem.Price = 9.99M;
+                    oditem.Amount = 2;
+                    oditem.SubPrice = 19.99M;
+                    oditem.Text = "testb" + od.Id;
+                    oditem.DishId = 1;
+                    oditem.DishName = "testb" + i;
+                    od.Items.Add(oditem);
+
+                }
+                ob.UpdateOrder(od);
+        }
+
         [TestMethod]
         public void TestMethod1()
         {
@@ -30,6 +121,16 @@ namespace TestProject_Persist
             TOrderData orderData = new TOrderData();
 
             orderData.Configure();
+
+            TOrder order= orderData.GetOrderAndAllItems(5);
+
+            Assert.AreNotEqual(order.Items.Count,0);
+
+            Console.WriteLine(order.OrderTime);
+
+            saveOrder1();
+
+            /*
             orderData.ExportTables();
 
             try
@@ -43,7 +144,7 @@ namespace TestProject_Persist
             }catch(Exception ex)
             {
                 Assert.Fail("open file failed");
-            }
+            }*/
 
 
         }

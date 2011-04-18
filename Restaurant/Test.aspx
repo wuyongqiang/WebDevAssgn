@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -153,6 +154,48 @@
             </ItemTemplate>
         </asp:FormView>
         <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Button" />
+    
+    </div>
+
+    <div>
+    
+
+            <asp:Panel ID="Panel2" runat="server">
+           <p style="display:inline"> date picked</p>
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:Button ID="Button2"
+            runat="server" Text="Calendar" onclick="Button2_Click" /> 
+            
+            </asp:Panel>
+           
+        
+        <asp:Panel ID="Panel1" runat="server" >
+        <asp:Calendar ID="Calendar1" Visible="true" 
+            runat="server" onselectionchanged="Calendar1_SelectionChanged"></asp:Calendar>
+            <p> haha</p>
+        </asp:Panel>
+            
+    </div>
+    <div>
+    <table>
+
+    <tr CssClass="upLayer"> 
+
+    <td> asdfasdfasd</td>asdfsadfsad<td></td>asdfasdfasf<td>sdfasdfasdfasdf</td>
+    </tr>
+    <tr>
+    <td> asdfasdfasd</td>asdfsadfsad<td></td>asdfasdfasf<td>sdfasdfasdfasdf</td>
+    <tr>
+    <td> asdfasdfasd</td>asdfsadfsad<td></td>asdfasdfasf<td>sdfasdfasdfasdf</td>
+    </tr>
+    <tr>
+    <td> asdfasdfasd</td>asdfsadfsad<td></td>asdfasdfasf<td>sdfasdfasdfasdf</td>
+    </tr>
+    <tr>
+    <td> asdfasdfasd</td>asdfsadfsad<td></td>asdfasdfasf<td>sdfasdfasdfasdf</td>
+    </tr>
+    
+    </table>
     
     </div>
     </form>

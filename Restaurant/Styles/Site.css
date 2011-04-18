@@ -269,6 +269,26 @@ div.accountInfo
     width: auto;
 }
 
+.leftDiv
+{
+    float: left;
+    text-align: left;
+    width: 60%;
+}
+
+.rightDiv
+{
+    float: right;
+    text-align: left;
+    width: 40%;
+}
+
+.upLayer
+{
+	z-index: 10;
+	position: fixed;
+}
+
 .loginDisplay
 {
     font-size: 1.1em;

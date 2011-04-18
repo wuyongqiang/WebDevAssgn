@@ -17,9 +17,9 @@ namespace PersistData
             private long _id;
             private long _dishId;
             private string _dishName;
-            private double _price;
-            private double _amount;
-            private double _subPrice;
+            private decimal _price;
+            private decimal _amount;
+            private decimal _subPrice;
             private string _text;
             private TOrder _order;
 
@@ -48,19 +48,19 @@ namespace PersistData
                 set { _dishName = value; }
             }
 
-            public virtual double Price
+            public virtual decimal Price
             {
                 get { return _price; }
                 set { _price = value; }
             }
 
-            public virtual double Amount
+            public virtual decimal Amount
             {
                 get { return _amount; }
                 set { _amount = value; }
             }
 
-            public virtual double SubPrice
+            public virtual decimal SubPrice
             {
                 get { return _subPrice; }
                 set { _subPrice = value; }
