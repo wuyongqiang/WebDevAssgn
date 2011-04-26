@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyRoleProcedures.cs" />
     <Compile Include="TOrder.cs" />
     <Compile Include="TOrderItem.cs" />
     <Compile Include="OrderData.cs" />

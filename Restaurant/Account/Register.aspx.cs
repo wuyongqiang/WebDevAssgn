@@ -15,6 +15,25 @@ public partial class Account_Register : System.Web.UI.Page
 
         if (!IsPostBack)
         {
+            string[] sa = Roles.GetAllRoles();
+
+            if (!Roles.RoleExists("admin"))
+                Roles.CreateRole("admin");
+
+            if (!Roles.RoleExists("customer"))
+                Roles.CreateRole("customer");
+
+           
+            foreach (string s in sa)
+            {
+                ((DropDownList)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("ddlRoles")).Items.Add(new ListItem(s,s));
+            }
+
+            if (!Context.User.IsInRole("admin"))
+            {
+                ((DropDownList)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("ddlRoles")).SelectedIndex = 1;
+                ((DropDownList)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("ddlRoles")).Enabled = false;
+            }
             RegisterUser.Email = "wuyq@changyi.com";
             ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("Password")).Text = "123456";
             ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("ConfirmPassword")).Text = "123456";
@@ -39,6 +58,15 @@ public partial class Account_Register : System.Web.UI.Page
         p.Save();
 
         FormsAuthentication.SetAuthCookie(RegisterUser.UserName, false /* createPersistentCookie */);
+
+        if (RegisterUser.UserName == "admin")
+        {
+            Roles.AddUserToRole(RegisterUser.UserName, "admin");
+        }
+        else
+        {
+            Roles.AddUserToRole(RegisterUser.UserName, "customer");
+        }
 
         string continueUrl = RegisterUser.ContinueDestinationPageUrl;
         if (String.IsNullOrEmpty(continueUrl))

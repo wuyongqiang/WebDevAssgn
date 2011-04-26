@@ -23,6 +23,16 @@
         </tr>
         <tr>
             <td align="right">
+                <asp:Label ID="Label2" runat="server" AssociatedControlID="TextName">User Name:</asp:Label>
+            </td>
+            <td class="style1">
+                <asp:TextBox ID="TextUserName" runat="server"></asp:TextBox>
+                <asp:Button ID="btnUser" runat="server" onclick="btnUser_Click" 
+                    Text="Get User" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
                 <asp:Label ID="Label1" runat="server" AssociatedControlID="TextName">Name:</asp:Label>
             </td>
             <td class="style1">
@@ -49,6 +59,17 @@
                 <asp:TextBox ID="TextPhone" runat="server"></asp:TextBox>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextPhone"
                     ErrorMessage="phone number format not correct" ValidationExpression="\d{8,10}"></asp:RegularExpressionValidator>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                <asp:Label ID="Label3" runat="server" AssociatedControlID="TextPhone">Role:</asp:Label>
+            </td>
+            <td class="style1">
+                
+                <asp:Literal ID="Literal2" runat="server" EnableViewState="False"></asp:Literal>
+                <asp:CheckBoxList ID="cblRoles" runat="server">
+                </asp:CheckBoxList>
             </td>
         </tr>
         <tr>

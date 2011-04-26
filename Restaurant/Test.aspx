@@ -9,10 +9,21 @@
 </head>
 <body>
     <form id="form1" runat="server">
+
     <div>
     <span>test page object data source</span>
     </div>
     <hr />
+
+    <div>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+
+    </div>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+
+
     <div>
     
         <asp:GridView ID="GridView1" runat="server" DataSourceID="ObjectDataSource1" 
@@ -181,23 +192,108 @@
 
     <tr CssClass="upLayer"> 
 
-    <td> asdfasdfasd</td>asdfsadfsad<td></td>asdfasdfasf<td>sdfasdfasdfasdf</td>
+    <td> asdfasdfasd</td>
     </tr>
-    <tr>
-    <td> asdfasdfasd</td>asdfsadfsad<td></td>asdfasdfasf<td>sdfasdfasdfasdf</td>
-    <tr>
-    <td> asdfasdfasd</td>asdfsadfsad<td></td>asdfasdfasf<td>sdfasdfasdfasdf</td>
-    </tr>
-    <tr>
-    <td> asdfasdfasd</td>asdfsadfsad<td></td>asdfasdfasf<td>sdfasdfasdfasdf</td>
-    </tr>
-    <tr>
-    <td> asdfasdfasd</td>asdfsadfsad<td></td>asdfasdfasf<td>sdfasdfasdfasdf</td>
-    </tr>
+        <caption>
+            asdfsadfsad<tr>
+                <td>
+                </td>
+                <caption>
+                    asdfasdfasf<tr>
+                        <td>
+                            sdfasdfasdfasdf</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            asdfasdfasd</td>
+                        <caption>
+                            asdfsadfsad<tr>
+                                <td>
+                                </td>
+                                <caption>
+                                    asdfasdfasf<tr>
+                                        <td>
+                                            sdfasdfasdfasdf</td>
+                                        <tr>
+                                            <td>
+                                                asdfasdfasd</td>
+                                            <caption>
+                                                asdfsadfsad<tr>
+                                                    <td>
+                                                    </td>
+                                                    <caption>
+                                                        asdfasdfasf<tr>
+                                                            <td>
+                                                                sdfasdfasdfasdf</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                asdfasdfasd</td>
+                                                            <caption>
+                                                                asdfsadfsad<tr>
+                                                                    <td>
+                                                                    </td>
+                                                                    <caption>
+                                                                        asdfasdfasf<tr>
+                                                                            <td>
+                                                                                sdfasdfasdfasdf</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>
+                                                                                asdfasdfasd</td>
+                                                                            <caption>
+                                                                                asdfsadfsad<tr>
+                                                                                    <td>
+                                                                                    </td>
+                                                                                    <caption>
+                                                                                        asdfasdfasf<tr>
+                                                                                            <td>
+                                                                                                sdfasdfasdfasdf</td>
+                                                                                        </tr>
+                                                                                    </caption>
+                                                                                </tr>
+                                                                            </caption>
+                                                                        </tr>
+                                                                    </caption>
+                                                                </tr>
+                                                            </caption>
+                                                        </tr>
+                                                    </caption>
+                                                </tr>
+                                            </caption>
+                                        </tr>
+                                    </tr>
+                                </caption>
+                            </tr>
+                        </caption>
+                    </tr>
+                </caption>
+            </tr>
+        </caption>
     
     </table>
     
     </div>
+    <div>
+    <p> hi<asp:CheckBoxList ID="CheckBoxList1" runat="server">
+        <asp:ListItem>option1</asp:ListItem>
+        <asp:ListItem>option2</asp:ListItem>
+        <asp:ListItem>option3</asp:ListItem>
+        </asp:CheckBoxList>
+        </p>
+
+    
+    </div>
+    </ContentTemplate>
+
+    </asp:UpdatePanel>
+        <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+            <ProgressTemplate>
+                Getting employees...
+            </ProgressTemplate>
+        </asp:UpdateProgress>
+
+
     </form>
 </body>
 </html>

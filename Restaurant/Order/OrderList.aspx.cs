@@ -20,7 +20,7 @@ public partial class Order_OrderList : System.Web.UI.Page
             Repeater1.DataBind();
 
             Panel1.Visible = false;
-
+            GvOrder1.TableOrder.Clear();
         }
     }
     protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)

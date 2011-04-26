@@ -6,13 +6,32 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using RestaurantApp;
+using System.Text;
 
 public partial class Order_OrderForm : System.Web.UI.Page
 {
+
+    public void ShowMessageBox(string message)
+    {
+        StringBuilder jsString = new StringBuilder();
+        jsString.Append("<script language='javascript'>");
+        jsString.AppendFormat("alert(\"{0}\");", message);
+        jsString.Append("</script>");
+        ClientScript.RegisterStartupScript(this.GetType(), "JScript", jsString.ToString());
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         if (!IsPostBack)
         {
+            if (!Context.User.IsInRole("customer"))
+            {
+                ShowMessageBox("not a customer");
+                LabelRslt.Text = "The user is not a customer,the order can't be submitted";
+                return;
+            }     
+            
             DataTable dtOrder = (DataTable)Session["order"];
             if (dtOrder != null)
             {
@@ -30,6 +49,8 @@ public partial class Order_OrderForm : System.Web.UI.Page
             tbAdd.Text = pf.Address;
             tbPhone.Text = pf.Phone;
             tbName.Text = pf.Name;
+
+            LabelRslt.Text = "";
                  
         }
 
@@ -39,6 +60,18 @@ public partial class Order_OrderForm : System.Web.UI.Page
     {
         //
 
-        RestaurantApp.RestaurantBiz.saveOrder(tbName.Text, tbPhone.Text, tbAdd.Text, tbAddition.Text, GvOrder1.TableOrder);
+        if (!Context.User.IsInRole("customer"))
+        {
+            ShowMessageBox("not a customer");
+            LabelRslt.Text = "The user is not a customer,the order can't be submitted";
+            return;
+        }        
+
+        RestaurantApp.RestaurantBiz.saveOrder(Context.User.Identity.Name, tbName.Text, tbPhone.Text, tbAdd.Text, tbAddition.Text, GvOrder1.TableOrder);
+
+        LabelRslt.Text = "Order submitted successfully";
+        btnSubmit.Enabled = false;
+        GvOrder1.TableOrder.Clear();
+        GvOrder1.Update();
     }
 }

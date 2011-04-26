@@ -61,31 +61,9 @@
             </td>
             <td class="style1" style="vertical-align: top" >
               
-                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" 
-                    CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="Id" 
-                    onrowcancelingedit="GridView2_RowCancelingEdit" 
-                    onrowdeleted="GridView2_RowDeleted" onrowdeleting="GridView2_RowDeleting" 
-                    onrowediting="GridView2_RowEditing" onrowupdated="GridView2_RowUpdated" 
-                    onrowupdating="GridView2_RowUpdating">
-                    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-                    <Columns>
-                        <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="True" />
-                        <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
-                        <asp:BoundField DataField="SubPrice" HeaderText="Price" ReadOnly="True" />
-                        <asp:CommandField ShowEditButton="True" />
-                        <asp:CommandField ShowDeleteButton="True" />
-                    </Columns>
-                    <PagerTemplate>                        
-                    </PagerTemplate>
-                    <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                    <EmptyDataTemplate>
-                        <span>You havn&#39;t made any order</span>
-                    </EmptyDataTemplate>
-                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                    <AlternatingRowStyle BackColor="White" />
-                </asp:GridView>
+                
+    <uc1:GvOrder ID="GvOrder1"  runat="server"/>    
+    
             </td>
             <td class="style1">
                 </td>
@@ -128,7 +106,5 @@
     <div>
                 
                 
-    <uc1:GvOrder ID="GvOrder1"  runat="server"/>    
-    
     </div>
 </asp:Content>

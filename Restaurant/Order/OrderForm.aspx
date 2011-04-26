@@ -56,6 +56,8 @@
                     onclick="btnSubmit_Click" /> </td>
             <td>
                 
+                <asp:Label ID="LabelRslt" runat="server"></asp:Label>
+                
             </td>
             <td>
                 &nbsp;</td>

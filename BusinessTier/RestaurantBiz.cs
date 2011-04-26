@@ -75,11 +75,12 @@ namespace RestaurantApp
             }
         }
 
-        static public void saveOrder(string name,string phone,string add,string text,DataTable dtOrder)
+        static public void saveOrder(string user_name, string name,string phone,string add,string text,DataTable dtOrder)
         {
         
             TAppOrder order = new TAppOrder();
             order.Name = name;
+            order.UserName = user_name;
             order.Address = add;
             order.Phone = phone;
             order.AddText = text;
@@ -112,7 +113,7 @@ namespace RestaurantApp
             //od.OrderTime = order.OrderTime;
             //od.Phone = order.Phone;
             //od.Address = order.Address;
-            //od.AddText = order.AddText;
+            od.UserName = order.UserName;
 
             foreach (TAppOrderItem item in order.Items)
             {

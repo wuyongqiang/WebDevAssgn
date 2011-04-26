@@ -82,6 +82,12 @@
                                                         ErrorMessage="phone number format not correct" ValidationExpression="\d{8,10}"></asp:RegularExpressionValidator>
                                     
                             </p>
+                            <p>
+                                <asp:Label ID="Label3" runat="server" AssociatedControlID="ddlRoles">Role:</asp:Label>
+
+                                <asp:DropDownList ID="ddlRoles" runat="server" Width="150px">
+                                </asp:DropDownList>
+                            </p>
                         </fieldset>
                          <%--<table>
                                 <tr>

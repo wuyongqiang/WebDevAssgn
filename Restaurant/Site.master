@@ -20,45 +20,63 @@
             <div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Log In</a> ]
+                        [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a>
+                        ]
                     </AnonymousTemplate>
                     <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/"/> ]
+                        Welcome <span class="bold">
+                            <asp:LoginName ID="HeadLoginName" runat="server" />
+                        </span>! [
+                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
+                            LogoutPageUrl="~/" />
+                        ]
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>
             <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
+                    IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
                         <asp:MenuItem Text="Account" Value="Account">
-                            <asp:MenuItem NavigateUrl="~/Account/Register.aspx" Text="Create an Account" 
-                                Value="Create an Account"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Account/ChangePassword.aspx" 
-                                Text="Modify my Account" Value="Modify my Account"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Account/ChangeDetail.aspx" Text="Change my Detail" 
-                                Value="Change my Detail"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Account/Register.aspx" Text="Create an Account" Value="Create an Account">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Account/ChangePassword.aspx" Text="Modify my Account"
+                                Value="Modify my Account"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Account/ChangeDetail.aspx" Text="Change my Detail" Value="Change my Detail">
+                            </asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Order" Value="Order">
-                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="place order" 
-                                Value="place order"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Order/OrderList.aspx" Text="my orders" 
-                                Value="my orders"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="place order" Value="place order">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Order/OrderList.aspx" Text="my orders" Value="my orders">
+                            </asp:MenuItem>
                         </asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About" />
                     </Items>
                 </asp:Menu>
             </div>
         </div>
         <div class="main">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+            <div>
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                </asp:ScriptManager>
+            </div>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <asp:UpdateProgress ID="UpdateProgress1" runat="server">
+                <ProgressTemplate>
+                    Loading ...
+                </ProgressTemplate>
+            </asp:UpdateProgress>
         </div>
         <div class="clear">
         </div>
     </div>
     <div class="footer">
-        
     </div>
     </form>
 </body>

@@ -15,7 +15,6 @@ public partial class UserControl_GvOrder : System.Web.UI.UserControl
     public DataTable TableOrder
     { get 
         {
-
             string tablename = this.Parent.ClientID + "order";
             dtOrder = (DataTable)Session[tablename];
             if (dtOrder == null)
