@@ -37,7 +37,7 @@ Thumbs.db
 # Environment Spesific files #
 ##############################
 web.config
-
+Hibernte.cfg.xml
 
 
 # Test and Copy files #
