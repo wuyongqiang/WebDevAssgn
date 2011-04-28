@@ -1,7 +1,7 @@
 USE [restaurant]
 GO
 
-/****** Object:  Table [dbo].[Status]    Script Date: 04/28/2011 13:31:33 ******/
+/****** Object:  Table [dbo].[TOrder]    Script Date: 04/28/2011 15:04:23 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -11,17 +11,30 @@ GO
 SET ANSI_PADDING ON
 GO
 
-CREATE TABLE [dbo].[Status](
-	[STATUS_ID] [bigint] IDENTITY(1,1) NOT NULL,
-	[STATUS_TEXT] [varchar](50) NULL,
- CONSTRAINT [PK_Status] PRIMARY KEY CLUSTERED 
+CREATE TABLE [dbo].[TOrder](
+	[ORDER_ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[NAME] [nvarchar](255) NOT NULL,
+	[ADDRESS] [nvarchar](255) NOT NULL,
+	[PHONE] [nvarchar](255) NOT NULL,
+	[ADDTEXT] [nvarchar](255) NOT NULL,
+	[ORDER_TIME] [datetime] NOT NULL,
+	[USER_NAME] [varchar](50) NULL,
+	[STAUS_ID] [bigint] NULL,
+PRIMARY KEY CLUSTERED 
 (
-	[STATUS_ID] ASC
+	[ORDER_ID] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
 
 SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[TOrder]  WITH CHECK ADD  CONSTRAINT [FK_TOrder_Status] FOREIGN KEY([STAUS_ID])
+REFERENCES [dbo].[Status] ([STATUS_ID])
+GO
+
+ALTER TABLE [dbo].[TOrder] CHECK CONSTRAINT [FK_TOrder_Status]
 GO
 
