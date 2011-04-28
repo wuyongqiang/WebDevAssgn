@@ -1,7 +1,7 @@
 USE [restaurant]
 GO
 
-/****** Object:  Table [dbo].[TOrder]    Script Date: 04/28/2011 15:04:23 ******/
+/****** Object:  Table [dbo].[TOrder]    Script Date: 04/28/2011 15:28:10 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -19,7 +19,7 @@ CREATE TABLE [dbo].[TOrder](
 	[ADDTEXT] [nvarchar](255) NOT NULL,
 	[ORDER_TIME] [datetime] NOT NULL,
 	[USER_NAME] [varchar](50) NULL,
-	[STAUS_ID] [bigint] NULL,
+	[STATUS_ID] [bigint] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[ORDER_ID] ASC
@@ -31,7 +31,7 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-ALTER TABLE [dbo].[TOrder]  WITH CHECK ADD  CONSTRAINT [FK_TOrder_Status] FOREIGN KEY([STAUS_ID])
+ALTER TABLE [dbo].[TOrder]  WITH CHECK ADD  CONSTRAINT [FK_TOrder_Status] FOREIGN KEY([STATUS_ID])
 REFERENCES [dbo].[Status] ([STATUS_ID])
 GO
 
