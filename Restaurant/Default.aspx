@@ -22,10 +22,10 @@
             <td class="style1">
                 &nbsp;
             </td>
-            <td rowspan="2" style="vertical-align: top" >
+            <td rowspan="2" style="vertical-align: top;width:50%" >
                 <div>
     
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="False" PageSize="20"
             AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource1" 
             ForeColor="#333333" GridLines="None" ondatabinding="GridView1_DataBinding" 
             style="margin-right: 23px" onrowcommand="GridView1_RowCommand">

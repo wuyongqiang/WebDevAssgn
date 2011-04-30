@@ -18,8 +18,10 @@ namespace PersistData
             ISession session = NHibernateHelper.GetCurrentSession();
             ITransaction tx = session.BeginTransaction();
 
-            IQuery query = session.CreateQuery("select c from DishItem as c where c.Id <= :MaxID");
-            query.SetInt64("MaxID", 10);
+            //IQuery query = session.CreateQuery("select c from DishItem as c where c.Id <= :MaxID");
+            //query.SetInt64("MaxID", 100);
+
+            IQuery query = session.CreateQuery("select c from DishItem as c");
 
             foreach (DishItem item in query.Enumerable())
             {

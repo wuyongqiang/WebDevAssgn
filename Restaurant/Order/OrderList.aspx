@@ -34,7 +34,7 @@
         </asp:SqlDataSource>
         <table>
             <tr>
-                <td>
+                <td align="right">
                     Begin Date
                 </td>
                 <td>
@@ -46,8 +46,8 @@
                 <td> </td>
             </tr>
             <tr>
-                <td>
-                    Begin Date
+                <td align="right">
+                    End Date
                 </td>
                 <td>
                     <asp:TextBox ID="tbEnd" runat="server"></asp:TextBox>
@@ -130,6 +130,22 @@
                     </td>
                     <td colspan="4">
                         <asp:Label ID="ADDTEXTLabel" runat="server" Text='<%# Eval("AddText") %>' />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        Status
+                    </td>
+                    <td colspan="2">
+                        <asp:Label ID="Label2" runat="server" Text='<%# GetStatusText(Eval("Status")) %>' />
+                    </td>
+                    <td>
+                        Type
+                    </td>
+                    <td colspan="1">
+                        <asp:Label ID="Label3" runat="server" Text='<%# GetTypeText(Eval("OrderType")) %>' />
                     </td>
                 </tr>
                

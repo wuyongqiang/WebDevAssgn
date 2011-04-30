@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using PersistData;
 using RestaurantApp;
 using System.Text;
 
@@ -42,7 +43,14 @@ public partial class Order_OrderForm : System.Web.UI.Page
                     }
             }
 
-            
+
+            // get the order types data
+            foreach (TOrderType item in RestaurantBiz.AllOrderTypes)
+            {
+                ddlOrderType.Items.Add(new ListItem(item.Text, item.Id.ToString()));
+            }
+            //select the first as default
+            ddlOrderType.Items[0].Selected = true;
 
             ProfileCommon pf = new ProfileCommon();
             pf.Initialize(Context.User.Identity.Name, true);
@@ -65,9 +73,9 @@ public partial class Order_OrderForm : System.Web.UI.Page
             ShowMessageBox("not a customer");
             LabelRslt.Text = "The user is not a customer,the order can't be submitted";
             return;
-        }        
+        }
 
-        RestaurantApp.RestaurantBiz.saveOrder(Context.User.Identity.Name, tbName.Text, tbPhone.Text, tbAdd.Text, tbAddition.Text, GvOrder1.TableOrder);
+        RestaurantApp.RestaurantBiz.saveOrder(Context.User.Identity.Name, tbName.Text, tbPhone.Text, tbAdd.Text, tbAddition.Text, Convert.ToInt64( ddlOrderType.SelectedValue), GvOrder1.TableOrder);
 
         LabelRslt.Text = "Order submitted successfully";
         btnSubmit.Enabled = false;

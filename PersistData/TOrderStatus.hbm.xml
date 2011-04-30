@@ -1,0 +1,28 @@
+﻿<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+     namespace="PersistData" assembly="PersistData">
+
+  <class
+      name="TOrderStatus"
+      table="OrderStatus"
+      lazy="true">
+
+    <id
+        name="Id"
+        column="STATUS_ID">
+
+      <generator class="native"/>
+
+    </id>
+
+    <property
+        name="Text"
+        column="STATUS_TEXT"
+        not-null="true"
+        unique="false"/>
+
+   
+
+  </class>
+
+</hibernate-mapping>

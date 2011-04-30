@@ -69,7 +69,7 @@ namespace TestProject_Persist
         }
 
 
-        public void saveOrder1()
+        public long  saveOrder1()
         {
             ISessionFactory _sessions;
             Configuration cfg = new Configuration().Configure();
@@ -103,6 +103,8 @@ namespace TestProject_Persist
 
                 }
                 ob.UpdateOrder(od);
+
+                return od.Id;
         }
 
         [TestMethod]
@@ -122,14 +124,19 @@ namespace TestProject_Persist
 
             orderData.Configure();
 
-            TOrder order= orderData.GetOrderAndAllItems(5);
+            long id = saveOrder1(); 
+
+            TOrder order= orderData.GetOrderAndAllItems(id);
 
             Assert.AreNotEqual(order.Items.Count,0);
 
             Console.WriteLine(order.OrderTime);
 
-            saveOrder1();
+            List<TOrderStatus> list1 =  orderData.GetAllOrderStatus();
+            Console.WriteLine("List<TOrderStatus> count is " + list1.Count);
 
+            List<TOrderType> list2 = orderData.GetAllOrderTypes();
+            Console.WriteLine("List<TOrderType> count is " + list2.Count);
             /*
             orderData.ExportTables();
 

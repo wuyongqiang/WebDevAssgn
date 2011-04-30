@@ -274,6 +274,10 @@
     </table>
     
     </div>
+
+    <div id="fixme" style="background-color:Red;position:fixed;top:10;left:73%;width:30;height:20;z-index:2"> Some Fixed Content </div>
+
+
     <div>
     <p> hi<asp:CheckBoxList ID="CheckBoxList1" runat="server">
         <asp:ListItem>option1</asp:ListItem>

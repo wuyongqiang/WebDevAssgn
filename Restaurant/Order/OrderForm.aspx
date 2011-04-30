@@ -12,8 +12,17 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <p> 
+    <p/> 
     <table style="width:100%;">
+        <tr>
+            <td class="style1" >
+                OrderType:</td>
+            <td>
+                <asp:DropDownList ID="ddlOrderType" runat="server"> </asp:DropDownList>
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
          <tr>
             <td class="style1" >
                 Name:</td>
@@ -68,6 +77,6 @@
             </td>
         </tr>
     </table>
-    </p>
+    
 </asp:Content>
 

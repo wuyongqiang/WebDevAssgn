@@ -19,7 +19,64 @@ namespace RestaurantApp
             }
             return s;
         }
-        //SELECT [ORDER_ID], [NAME], [ADDRESS], [PHONE], [ADDTEXT], [ORDER_TIME],[Price],[Status] FROM [TOrder]
+
+        static private List<TOrderStatus> _orderStatusList = null;
+
+        static public List<TOrderStatus> AllOrderStatus
+        {
+            get{
+                if (_orderStatusList == null)
+                {
+                    TOrderData ob = new TOrderData();
+                    ob.Configure();
+
+                     _orderStatusList = ob.GetAllOrderStatus();
+
+                }
+                return _orderStatusList;
+            }
+           
+        }
+
+        static public string getStatusText(int id)
+        {
+            foreach(TOrderStatus item in  AllOrderStatus)
+            {
+                if (item.Id == id) return item.Text;
+            }
+
+            return "";
+        }
+
+        static private List<TOrderType> _orderTypeList = null;
+
+        static public List<TOrderType> AllOrderTypes
+        {
+            get
+            {
+                if (_orderTypeList == null)
+                {
+                    TOrderData ob = new TOrderData();
+                    ob.Configure();
+
+                    _orderTypeList = ob.GetAllOrderTypes();
+
+                }
+                return _orderTypeList;
+            }
+
+        }
+
+        static public string getTypeText(int id)
+        {
+            foreach (TOrderType item in AllOrderTypes)
+            {
+                if (item.Id == id) return item.Text;
+            }
+
+            return "";
+        }
+
         static public List<TOrder> getOrdersAndItems(DateTime min, DateTime max, string user)
         {
             TOrderData ob = new TOrderData();
@@ -28,26 +85,6 @@ namespace RestaurantApp
             List<TOrder> list = ob.GetOrdersAndAllItems(min,max,user);
 
             return list;
-            //dtOrder.Rows.Clear();
-            if (list != null)
-            {
-                for (int i = 0; i < list.Count; i++)
-                {
-                    TOrder order = list[i];
-                    
-                    //dtOrder.Rows.Add();
-                    //dtOrder.Rows[i][0] = order.Id;
-                    //dtOrder.Rows[i][1] = order.Name;
-                    //dtOrder.Rows[i][2] = order.Address;
-                    //dtOrder.Rows[i][3] = order.Phone;
-                    //dtOrder.Rows[i][4] = order.Address;
-                    //dtOrder.Rows[i][5] = order.OrderTime;
-                    //dtOrder.Rows[i][6] = order.Price;
-                    //dtOrder.Rows[i][7] = order.Status;
-
-                }
-
-            }
         }
         static public void getOrderAndItems(long orderId, DataTable dtOrder)
         {
@@ -75,7 +112,7 @@ namespace RestaurantApp
             }
         }
 
-        static public void saveOrder(string user_name, string name,string phone,string add,string text,DataTable dtOrder)
+        static public void saveOrder(string user_name, string name,string phone,string add,string text,long orderType,DataTable dtOrder)
         {
         
             TAppOrder order = new TAppOrder();
@@ -84,6 +121,7 @@ namespace RestaurantApp
             order.Address = add;
             order.Phone = phone;
             order.AddText = text;
+            order.OrderTypeID = orderType;
             if (dtOrder != null)
             {
                 for (int i = 0; i < dtOrder.Rows.Count; i++)
@@ -108,11 +146,7 @@ namespace RestaurantApp
             ob.Configure();
 
             TOrder od = ob.CreateOrder(order.Name, order.Address, order.Phone, order.AddText);
-            //od.Id = order.Id;
-            //od.Name = order.Name;
-            //od.OrderTime = order.OrderTime;
-            //od.Phone = order.Phone;
-            //od.Address = order.Address;
+            
             od.UserName = order.UserName;
 
             foreach (TAppOrderItem item in order.Items)
@@ -129,8 +163,8 @@ namespace RestaurantApp
                 od.Items.Add(oditem);
             }
 
-            
-            
+
+            od.OrderType = order.OrderTypeID;
             ob.UpdateOrder(od);
         }
 
@@ -147,7 +181,6 @@ namespace RestaurantApp
 
             List<DishItem> listDishItem = PersistData.DishItemObj.GetAllDishItem();
 
-            //int i = 8;
             foreach (DishItem item in listDishItem)
             {
                 

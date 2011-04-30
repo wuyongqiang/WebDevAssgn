@@ -15,6 +15,8 @@ namespace RestaurantApp
         public string AddText{get;set;}
         public string Status{get;set;}
         public string UserName { get; set; }
+        public long StatusID { get; set; }
+        public long OrderTypeID { get; set; }
 
         public List<TAppOrderItem> Items{get;set;}
 

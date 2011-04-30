@@ -22,7 +22,8 @@ namespace PersistData
             private string _phone;
             private DateTime _orderTime;
             private string _addText;
-            private string _status;
+            private long _status;
+            private long _orderType;
             private string _userName;
 
             private IList _items;
@@ -65,12 +66,18 @@ namespace PersistData
                 set { _orderTime = value; }
             }
 
-            public virtual string Status
+            public virtual long Status
             {
                 get { return _status; }
                 set { _status = value; }
             }
 
+            public virtual long OrderType
+            {
+                get { return _orderType; }
+                set { _orderType = value; }
+            }
+            
             public virtual string UserName
             {
                 get { return _userName; }

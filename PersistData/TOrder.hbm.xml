@@ -48,7 +48,12 @@
 
     <property
          name="Status"
-         column="STATUS"
+         column="STATUS_ID"
+         not-null="false"/>
+
+    <property
+         name="OrderType"
+         column="ORDERTYPE_ID"
          not-null="false"/>
     
     

@@ -85,4 +85,15 @@ public partial class Order_OrderList : System.Web.UI.Page
         Repeater1.DataSourceID = null;
         Repeater1.DataBind();
     }
+
+    protected string GetStatusText(object id)
+    {
+        return RestaurantBiz.getStatusText( Convert.ToInt16( id));
+    }
+
+    protected string GetTypeText(object id)
+    {
+        return RestaurantBiz.getTypeText(Convert.ToInt16(id));
+    }
+    
 }

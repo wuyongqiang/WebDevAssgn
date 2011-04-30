@@ -51,7 +51,8 @@ namespace PersistData
             order.Phone = phone;
             order.AddText = text;
             order.OrderTime = DateTime.Now;
-            order.Status = "unprocessed";
+            if (order.Status<=0)
+                order.Status = 1; //if not specified then set it unprocessed
             order.Items = new ArrayList();
 
             
@@ -272,6 +273,67 @@ namespace PersistData
             return result;
         }
 
+        public TOrderStatus GetOrderType(long orderStatusId)
+        {
+            TOrderStatus orderStatus = null;
 
+            using (ISession session = _sessions.OpenSession())
+            using (ITransaction tx = session.BeginTransaction())
+            {
+                orderStatus = session.Load<TOrderStatus>(orderStatusId);
+               
+                tx.Commit();
+            }
+
+            return orderStatus;
+        }
+
+        public List<TOrderStatus> GetAllOrderStatus()
+        {
+            List<TOrderStatus> result = new List<TOrderStatus> ();
+
+            using (ISession session = _sessions.OpenSession())
+            using (ITransaction tx = session.BeginTransaction())
+            {
+                IQuery q = session.CreateQuery(
+                    "from TOrderStatus as orderStatus"
+                );
+
+                for (int i = 0; i < q.List().Count; i++)
+                {
+                    TOrderStatus order = (TOrderStatus)q.List()[i];
+                    result.Add(order);
+                }
+
+                tx.Commit();
+            }
+
+            return result;
+        }
+
+
+        public List<TOrderType> GetAllOrderTypes()
+        {
+            List<TOrderType> result = new List<TOrderType>();
+
+            using (ISession session = _sessions.OpenSession())
+            using (ITransaction tx = session.BeginTransaction())
+            {
+                IQuery q = session.CreateQuery(
+                    "from TOrderType as orderType"
+                );
+
+                for (int i = 0; i < q.List().Count; i++)
+                {
+                    TOrderType orderType = (TOrderType)q.List()[i];
+                    result.Add(orderType);
+                }
+
+                tx.Commit();
+            }
+
+            return result;
+        }
+        
     }
 }
