@@ -57,7 +57,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=BV-VAIO;Initial Catalog=restaurant;Integrated Security=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=n7682905;Integrated Security=True")>  _
         Public ReadOnly Property restaurantConnectionString() As String
             Get
                 Return CType(Me("restaurantConnectionString"),String)

@@ -46,11 +46,20 @@
   <ItemGroup>
     <Compile Include="MyRoleProvider.cs" />
     <Compile Include="OrderObj.cs" />
+    <Compile Include="OrderProcessBiz.cs" />
     <Compile Include="RestaurantBiz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TOrderApp.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccessTier\DataAccessTier.vbproj">
+      <Project>{0B9375DD-09A8-4EFE-827F-1D0987CEEFEA}</Project>
+      <Name>DataAccessTier</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\Data.vbproj">
+      <Project>{6F3FAAC0-FF20-431E-B946-CDE1672A2806}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PersistData\PersistData.csproj">
       <Project>{275A1E78-6F8F-45C2-BA6E-40084A03605F}</Project>
       <Name>PersistData</Name>

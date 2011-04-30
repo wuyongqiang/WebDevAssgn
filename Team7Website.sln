@@ -8,10 +8,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Restaurant", "Restaurant", "{10450DDF-FAE2-4EAE-BA6D-41C01280422C}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Restaurant", "Restaurant\", "{10450DDF-FAE2-4EAE-BA6D-41C01280422C}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = "{8D042685-9266-4526-A138-C779210DC09C}|BusinessTier.dll;{275A1E78-6F8F-45C2-BA6E-40084A03605F}|PersistData.dll;"
+		ProjectReferences = "{8D042685-9266-4526-A138-C779210DC09C}|BusinessTier.dll;{275A1E78-6F8F-45C2-BA6E-40084A03605F}|PersistData.dll;{6F3FAAC0-FF20-431E-B946-CDE1672A2806}|Data.dll;{0B9375DD-09A8-4EFE-827F-1D0987CEEFEA}|DataAccessTier.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Restaurant"
 		Debug.AspNetCompiler.PhysicalPath = "Restaurant\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Restaurant\"
@@ -27,6 +27,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Restaurant", "Restaurant", 
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "4852"
+		VWDVirtualPath = "/Restaurant"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantApp", "BusinessTier\RestaurantApp.csproj", "{8D042685-9266-4526-A138-C779210DC09C}"
@@ -37,6 +38,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistData", "PersistData\PersistData.csproj", "{275A1E78-6F8F-45C2-BA6E-40084A03605F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject_Persist", "TestProject_Persist\TestProject_Persist.csproj", "{57A6A2B8-5F70-48F1-AB27-E7DA214CA708}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DataAccessTier", "DataAccessTier\DataAccessTier.vbproj", "{0B9375DD-09A8-4EFE-827F-1D0987CEEFEA}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Data", "Data\Data.vbproj", "{6F3FAAC0-FF20-431E-B946-CDE1672A2806}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -63,6 +68,14 @@ Global
 		{57A6A2B8-5F70-48F1-AB27-E7DA214CA708}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57A6A2B8-5F70-48F1-AB27-E7DA214CA708}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57A6A2B8-5F70-48F1-AB27-E7DA214CA708}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B9375DD-09A8-4EFE-827F-1D0987CEEFEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B9375DD-09A8-4EFE-827F-1D0987CEEFEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B9375DD-09A8-4EFE-827F-1D0987CEEFEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B9375DD-09A8-4EFE-827F-1D0987CEEFEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F3FAAC0-FF20-431E-B946-CDE1672A2806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F3FAAC0-FF20-431E-B946-CDE1672A2806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F3FAAC0-FF20-431E-B946-CDE1672A2806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F3FAAC0-FF20-431E-B946-CDE1672A2806}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
