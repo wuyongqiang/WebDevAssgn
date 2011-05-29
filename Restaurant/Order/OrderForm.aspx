@@ -73,7 +73,8 @@
         </tr>
         <tr>            
             <td colspan="2">
-                <uc1:GvOrder ID="GvOrder1" runat="server" />
+                <uc1:GvOrder ID="GvOrderDetail" runat="server" />
+            <asp:LinkButton ID="LinkButtonMyOrders" Text="ShowMyOrders" Visible="false" runat="server" OnClick="LinkButtonMyOrders_Click"></asp:LinkButton>    
             </td>
         </tr>
     </table>

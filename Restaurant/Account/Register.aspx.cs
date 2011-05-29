@@ -33,14 +33,7 @@ public partial class Account_Register : System.Web.UI.Page
             {
                 ((DropDownList)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("ddlRoles")).SelectedIndex = 1;
                 ((DropDownList)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("ddlRoles")).Enabled = false;
-            }
-            RegisterUser.Email = "wuyq@changyi.com";
-            ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("Password")).Text = "123456";
-            ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("ConfirmPassword")).Text = "123456";
-
-            ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("TextAddress")).Text = "1-53 Blamey Street";
-            ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("TextPhone")).Text = "12345678";
-            
+            }    
             
         }
     }
@@ -52,6 +45,7 @@ public partial class Account_Register : System.Web.UI.Page
         p.Initialize(RegisterUser.UserName, true);
 
         p.Address = ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("TextAddress")).Text;
+        p.Name = ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("TextName")).Text;
         p.Phone = ((TextBox)RegisterUser.CreateUserStep.ContentTemplateContainer.FindControl("TextPhone")).Text;
 
         //// Save the profile - must be done since we explicitly created this profile instance
@@ -71,7 +65,7 @@ public partial class Account_Register : System.Web.UI.Page
         string continueUrl = RegisterUser.ContinueDestinationPageUrl;
         if (String.IsNullOrEmpty(continueUrl))
         {
-            continueUrl = "~/";
+            continueUrl = "~/FirstPage.aspx";
         }
         Response.Redirect(continueUrl);
     }

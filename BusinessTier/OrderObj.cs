@@ -12,15 +12,15 @@ namespace RestaurantApp
         //List<City>
 
         
-        public static Dictionary<int, List<TAppOrderItem>> ItemListDict;
+        public static Dictionary<int, List<TOrderItemBiz>> ItemListDict;
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select, true)]
 
-        static public List<TAppOrderItem> getOrderItems(int sessionid)
+        static public List<TOrderItemBiz> getOrderItems(int sessionid)
         {
-            List<TAppOrderItem> rlt = null;
+            List<TOrderItemBiz> rlt = null;
             if (ItemListDict == null)
             {
-                ItemListDict = new Dictionary<int, List<TAppOrderItem>>();
+                ItemListDict = new Dictionary<int, List<TOrderItemBiz>>();
             }
             if (ItemListDict.ContainsKey(sessionid))
             {
@@ -28,22 +28,22 @@ namespace RestaurantApp
             }
             else
             {
-                rlt = new List<TAppOrderItem>();
+                rlt = new List<TOrderItemBiz>();
                 ItemListDict[sessionid] = rlt;
             }
             
             return rlt;
         }
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Update, true)]
-        static public void updateDataItem(TAppOrderItem item)
+        static public void updateDataItem(TOrderItemBiz item)
         {
             int sessionid = 10;
             if (ItemListDict.ContainsKey(sessionid))
             {
-                List<TAppOrderItem> list = ItemListDict[sessionid];
+                List<TOrderItemBiz> list = ItemListDict[sessionid];
                 if (list != null)
                 {
-                    foreach (TAppOrderItem oneitem in list)
+                    foreach (TOrderItemBiz oneitem in list)
                     {
                         if (item.DishId == oneitem.DishId)
                         {
@@ -54,19 +54,19 @@ namespace RestaurantApp
             }
         }
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Delete, true)]
-        static public void deleteOrderItem(TAppOrderItem item)
+        static public void deleteOrderItem(TOrderItemBiz item)
         {
             ;
         }
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Insert, true)]
-        static public void insertOrderItem(int sessionid, TAppOrderItem item)
+        static public void insertOrderItem(int sessionid, TOrderItemBiz item)
         {
             if (ItemListDict.ContainsKey(sessionid))
             {
-                List<TAppOrderItem> list = ItemListDict[sessionid];
+                List<TOrderItemBiz> list = ItemListDict[sessionid];
                 if (list == null)
                 {
-                    list = new List<TAppOrderItem>();
+                    list = new List<TOrderItemBiz>();
                     ItemListDict[sessionid] = list;
                 }
                 if (list != null)

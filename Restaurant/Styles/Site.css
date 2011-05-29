@@ -11,6 +11,45 @@ body
     color: #696969;
 }
 
+div.topPanel
+{
+	float: left;
+	width: 100%;
+	height: 100px;
+	margin-bottom: 20px;
+}
+
+#leftPanel
+{
+	float: left;
+}
+
+#rightPanel
+{
+	float: left;
+
+}
+
+
+#bottomPanel
+{
+	float: left;
+	width: 100%;
+	clear: both;
+}
+
+.salesfont 
+{
+	font-size: medium;
+	font-weight:bold;
+}
+
+.salesfont 
+{
+	font-size: large;
+	font-weight:bold;
+}
+
 a:link, a:visited
 {
     color: #034af3;
@@ -142,6 +181,11 @@ first child of the left and right table columns */
     margin: 0px auto;
     text-align: center;
     line-height: normal;
+}
+
+.status
+{
+	width: 110px;
 }
 
 

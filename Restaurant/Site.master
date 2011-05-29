@@ -39,20 +39,30 @@
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" />
                         <asp:MenuItem Text="Account" Value="Account">
-                            <asp:MenuItem NavigateUrl="~/Account/Register.aspx" Text="Create an Account" Value="Create an Account">
+                            <asp:MenuItem NavigateUrl="~/Account/Register.aspx" Text="Create Account" 
+                                Value="Create Account">
                             </asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Account/ChangePassword.aspx" Text="Modify my Account"
-                                Value="Modify my Account"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Account/ChangeDetail.aspx" Text="Change my Detail" Value="Change my Detail">
+                            <asp:MenuItem NavigateUrl="~/Account/ChangePassword.aspx" Text="Change Password"
+                                Value="Change Password"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Account/ChangeDetail.aspx" Text="Change Details" 
+                                Value="Change Details">
                             </asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Order" Value="Order">
-                            <asp:MenuItem NavigateUrl="~/Default.aspx" Text="place order" Value="place order">
+                            <asp:MenuItem NavigateUrl="~/FirstPage.aspx" Text="Place order" 
+                                Value="Place order">
                             </asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="~/Order/OrderList.aspx" Text="my orders" Value="my orders">
+                            <asp:MenuItem NavigateUrl="~/Order/OrderList.aspx" Text="My orders" 
+                                Value="My orders">
                             </asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="About" />
+                        <asp:MenuItem Text="Sales" Value="Sales">
+                            <asp:MenuItem NavigateUrl="~/BizOwner/OrderProcess.aspx" Text="Process orders" 
+                                Value="Process orders"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/BizOwner/Sales.aspx" Text="Sales" Value="Sales">
+                            </asp:MenuItem>
+                        </asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </div>

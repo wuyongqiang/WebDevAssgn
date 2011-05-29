@@ -58,16 +58,6 @@ public partial class UserControl_GvOrder : System.Web.UI.UserControl
         dtOrder.Columns.Add("Price", System.Type.GetType("System.String"));
     }
 
- protected void GvOrder_RowUpdated(object sender, GridViewUpdatedEventArgs e)
-    {
-       
-    }
-
-    protected void GvOrder_RowDeleted(object sender, GridViewDeletedEventArgs e)
-    {
-  
-        
-    }
     protected void GvOrder_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         int count = e.RowIndex;
@@ -91,45 +81,33 @@ public partial class UserControl_GvOrder : System.Web.UI.UserControl
 
         DataRow rOrder = TableOrder.Rows[i];
 
-        try
-        {
-            //int quant = Convert.ToInt16( e.NewValues[0]);
-
-            GridViewRow row = GvOrder.Rows[e.RowIndex];
-            int quant = Convert.ToInt16(((TextBox)(row.Cells[1].Controls[0])).Text);
-
-            string s = (string)rOrder[4];
-
-            if (s[0] > '9' || s[0] <= '0')
-            {
-                s = s.Substring(1);
-            }
-            
-            rOrder["SubPrice"] = (Convert.ToDouble(s) * quant).ToString("C");
-
-            rOrder["Quantity"] = quant;
-
-            GvOrder.EditIndex = -1;
-
-            Update();
-        }
-        catch (Exception ex)
-        {
-
-        }
-
+        GridViewRow row = GvOrder.Rows[e.RowIndex];
         
+        double f = -1;
+        double.TryParse(((TextBox)(row.Cells[1].Controls[0])).Text,out f);
+
+        int quant = (int)f;
+        if (quant < 0) return;
+
+        string s = (string)rOrder[4];
+
+        if (s[0] > '9' || s[0] <= '0')
+        {
+            //get rid of "$"
+            s = s.Substring(1);
+        }
+            
+        rOrder["SubPrice"] = (Convert.ToDouble(s) * quant).ToString("C");
+
+        rOrder["Quantity"] = quant;
+
+        GvOrder.EditIndex = -1;
+
+        Update();
     }
     protected void GvOrder_RowEditing(object sender, GridViewEditEventArgs e)
     {
         GvOrder.EditIndex = e.NewEditIndex;
         Update();
     }
-    protected void GvOrder_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-    {
-        //e.Cancel = true;
-        //GvOrder.EditIndex = -1;
-        //Update();
-    }
-
 }

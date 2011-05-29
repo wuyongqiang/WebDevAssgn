@@ -287,6 +287,11 @@
         </p>
 
     
+        <p>
+            <asp:Button ID="Button3" runat="server" onclick="Button3_Click" Text="Button" />
+        </p>
+
+    
     </div>
     </ContentTemplate>
 

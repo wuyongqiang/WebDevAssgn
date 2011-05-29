@@ -112,10 +112,10 @@ namespace RestaurantApp
             }
         }
 
-        static public void saveOrder(string user_name, string name,string phone,string add,string text,long orderType,DataTable dtOrder)
+        static public long saveOrder(ref string promo, string user_name, string name, string phone, string add, string text, long orderType, DataTable dtOrder)
         {
-        
-            TAppOrder order = new TAppOrder();
+
+            TOrderBiz order = new TOrderBiz();
             order.Name = name;
             order.UserName = user_name;
             order.Address = add;
@@ -126,30 +126,31 @@ namespace RestaurantApp
             {
                 for (int i = 0; i < dtOrder.Rows.Count; i++)
                 {
-                        TAppOrderItem item = new TAppOrderItem();
-                        item.DishId = (long)dtOrder.Rows[i][0];
-                        item.DishName = (string)dtOrder.Rows[i][1];
+                    TOrderItemBiz item = new TOrderItemBiz();
+                    item.DishId = (long)dtOrder.Rows[i][0];
+                    item.DishName = (string)dtOrder.Rows[i][1];
 
-                        item.Amount = Convert.ToDecimal(stripDL(dtOrder.Rows[i][2].ToString()));
-                        item.SubPrice = Convert.ToDecimal(stripDL(dtOrder.Rows[i][3].ToString()));
-                        item.Price = Convert.ToDecimal(stripDL(dtOrder.Rows[i][4].ToString()));
-                        item.Text = "";
-                        order.Items.Add(item);
-                 }
-                   
+                    item.Amount = Convert.ToDecimal(stripDL(dtOrder.Rows[i][2].ToString()));
+                    item.SubPrice = Convert.ToDecimal(stripDL(dtOrder.Rows[i][3].ToString()));
+                    item.Price = Convert.ToDecimal(stripDL(dtOrder.Rows[i][4].ToString()));
+                    item.Text = "";
+                    order.Items.Add(item);
+                }
+
             }
-            saveOrder(order);
+            promo = order.ChipIn1For5();
+            return saveOrder(order);
         }
-        static public void saveOrder(TAppOrder order)
+        static public long saveOrder(TOrderBiz order)
         {
             TOrderData ob = new TOrderData();
             ob.Configure();
 
-            TOrder od = ob.CreateOrder(order.Name, order.Address, order.Phone, order.AddText);
-            
+            TOrder od = ob.CreateOrder(order.Name, order.Address, order.Phone, order.AddText, order.OrderTypeID);
+
             od.UserName = order.UserName;
 
-            foreach (TAppOrderItem item in order.Items)
+            foreach (TOrderItemBiz item in order.Items)
             {
                 TOrderItem oditem = new TOrderItem();
                 oditem.Order = od;
@@ -162,11 +163,11 @@ namespace RestaurantApp
 
                 od.Items.Add(oditem);
             }
-
-
-            od.OrderType = order.OrderTypeID;
             ob.UpdateOrder(od);
+            return od.Id;
         }
+
+        static List<DishItem> listDishItem = null;
 
         static public DataTable getDishItems()
         {
@@ -179,21 +180,49 @@ namespace RestaurantApp
             dt.Columns.Add("Descript", System.Type.GetType("System.String"));
             dt.Columns.Add("Price", System.Type.GetType("System.String"));
 
-            List<DishItem> listDishItem = PersistData.DishItemObj.GetAllDishItem();
+            listDishItem = PersistData.DishItemObj.GetAllDishItem();
 
             foreach (DishItem item in listDishItem)
             {
-                
+
                 DataRow row = dt.NewRow();
                 row["Id"] = item.Id;
                 row["Name"] = item.Name;
                 row["Descript"] = item.Desc;
-                row["Price"] = item.Price.ToString("f2");
+                row["Price"] = item.Price.ToString("C2");
                 dt.Rows.Add(row);
             }
 
 
             return dt;
+        }
+
+        static public void AddItemToOrderTable(int index, int quantity, DataTable TableOrder)
+        {
+            DataRow rOrder = null;
+            for (int i = 0; i < TableOrder.Rows.Count; i++)
+            {
+                if ((long)(TableOrder.Rows[i]["Id"]) == listDishItem[index].Id)
+                {
+                    rOrder = TableOrder.Rows[i];
+                    break;
+                }
+            }
+
+            if (rOrder == null)
+            {
+                rOrder = TableOrder.Rows.Add();
+                rOrder["Name"] = listDishItem[index].Name;
+                rOrder["Id"] = listDishItem[index].Id;
+                rOrder["Quantity"] = 0;
+                rOrder["SubPrice"] = "0.00";
+                rOrder["Price"] = listDishItem[index].Price;
+            }
+            quantity += (int)rOrder["Quantity"];
+
+            rOrder["Quantity"] = quantity;
+            rOrder["SubPrice"] = (listDishItem[index].Price * quantity).ToString("C2");
+
         }
     }
 }

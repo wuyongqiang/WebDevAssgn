@@ -24,6 +24,9 @@ public partial class Account_ChangePasswordSuccess : System.Web.UI.Page
             if (!Roles.RoleExists("customer"))
                 Roles.CreateRole("customer");
 
+            if (!Roles.RoleExists("Sales"))
+                Roles.CreateRole("Sales");
+
             foreach (string s in sa)
             {
                 cblRoles.Items.Add(new ListItem(s, s));

@@ -6,7 +6,83 @@ DataAccessTier
 </name>
 </assembly>
 <members>
-<member name="P:DataAccessTier.My.Resources.Resources.ResourceManager">
+<member name="T:DataAccessTier.SalesDataSetTableAdapters.SalesSelectCommandTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:DataAccessTier.SalesDataSetTableAdapters.SalesPrDishTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:DataAccessTier.SalesDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Data.SalesDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:DataAccessTier.SalesDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Data.SalesDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:DataAccessTier.SalesDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Data.SalesDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:DataAccessTier.SalesDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:DataAccessTier.SalesDataSetTableAdapters.TableAdapterManager.UpdateAll(Data.SalesDataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:DataAccessTier.SalesDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:DataAccessTier.SalesDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:DataAccessTier.SalesDataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="T:DataAccessTier.CustomerEmailDataSetTableAdapters.EmailSelectCommandTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:DataAccessTier.CustomerEmailDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Data.CustomerEmailDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:DataAccessTier.CustomerEmailDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Data.CustomerEmailDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:DataAccessTier.CustomerEmailDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Data.CustomerEmailDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:DataAccessTier.CustomerEmailDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:DataAccessTier.CustomerEmailDataSetTableAdapters.TableAdapterManager.UpdateAll(Data.CustomerEmailDataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:DataAccessTier.CustomerEmailDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:DataAccessTier.CustomerEmailDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:DataAccessTier.CustomerEmailDataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="P:DataAccessTier.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>

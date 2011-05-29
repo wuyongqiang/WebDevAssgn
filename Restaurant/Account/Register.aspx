@@ -34,7 +34,7 @@
                             <legend>Account Information</legend>
                             <p>
                                 <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
-                                <asp:TextBox ID="UserName" runat="server" CssClass="textEntry" Text="cust8"></asp:TextBox>
+                                <asp:TextBox ID="UserName" runat="server" CssClass="textEntry"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
                                     CssClass="failureNotification" ErrorMessage="User Name is required." ToolTip="User Name is required."
                                     ValidationGroup="RegisterUserValidationGroup">*</asp:RequiredFieldValidator>
@@ -75,6 +75,13 @@
                             
                             </p>
                             <p>
+                                <asp:Label ID="Label4" runat="server">Name:</asp:Label><br />
+                                <asp:TextBox ID="TextName" runat="server"></asp:TextBox>
+     
+                            </p>
+
+
+                            <p>
                                                     <asp:Label ID="Label2" runat="server" AssociatedControlID="TextPhone">Phone:</asp:Label>
                                                     <asp:TextBox ID="TextPhone" runat="server"></asp:TextBox>
                                     
@@ -89,41 +96,7 @@
                                 </asp:DropDownList>
                             </p>
                         </fieldset>
-                         <%--<table>
-                                <tr>
-                                     <td align="center" colspan="2" style="color:Red;">
-                                                    <asp:Literal ID="Literal1" runat="server" EnableViewState="False"></asp:Literal>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                            <td align="center" colspan="2" 
-                                                    style="color:White;background-color:#990000;font-weight:bold;">
-                                                    Input the following to help filling the order</td>
-                                            </tr>
-                                            <tr>
-                                            <td align="right">
-                                                    <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="TextAddress">Address:</asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:TextBox ID="TextAddress" runat="server"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                                                        ControlToValidate="TextAddress" ErrorMessage="Mandatory“Address”。" ToolTip="Mandatory“Address”。" 
-                                                        ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                            <td align="right">
-                                                    <asp:Label ID="PHoneLabel" runat="server" AssociatedControlID="TextPhone">Phone:</asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:TextBox ID="TextPhone" runat="server"></asp:TextBox>
-                                    
-                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextPhone"
-                                                        ErrorMessage="phone number format not correct" ValidationExpression="\d{8,10}"></asp:RegularExpressionValidator>
-                                    
-                                                </td>
-                                            </tr>
-                                         </table>--%>  
+                         
                         <p class="submitButton">
                             <asp:Button ID="CreateUserButton" runat="server" CommandName="MoveNext" Text="Create User"
                                 ValidationGroup="RegisterUserValidationGroup" />

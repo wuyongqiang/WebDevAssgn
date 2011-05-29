@@ -22,6 +22,7 @@ namespace PersistData
             //    .AddClass(typeof(TOrderItem))
             //    .BuildSessionFactory();
             Configuration cfg = new Configuration().Configure();
+            cfg.Properties["connection.connection_string"] = NHibernateHelper.connectionString;
             _sessions =  cfg.BuildSessionFactory();
         }
 
@@ -31,7 +32,7 @@ namespace PersistData
             //    .AddClass(typeof(TOrder))
             //    .AddClass(typeof(TOrderItem));
             Configuration cfg = new Configuration().Configure();
-
+            cfg.Properties["connection.connection_string"] = NHibernateHelper.connectionString;
             SchemaExport myschema = new SchemaExport(cfg);
             myschema.SetOutputFile(@"c:\OrderTables.txt");
             myschema.Create(true, false);
@@ -43,7 +44,7 @@ namespace PersistData
         //private DateTime _orderTime;
         //private string _addText;
         //private string _status;
-        public TOrder CreateOrder(string name,string address,string phone,string text)
+        public TOrder CreateOrder(string name,string address,string phone,string text,long OrderTypeID)
         {
             TOrder order = new TOrder();
             order.Name = name;
@@ -51,6 +52,7 @@ namespace PersistData
             order.Phone = phone;
             order.AddText = text;
             order.OrderTime = DateTime.Now;
+            order.OrderType = OrderTypeID;
             if (order.Status<=0)
                 order.Status = 1; //if not specified then set it unprocessed
             order.Items = new ArrayList();

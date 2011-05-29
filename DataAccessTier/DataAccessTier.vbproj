@@ -66,6 +66,14 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerEmailDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomerEmailDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerEmailDataSet.vb">
+      <DependentUpon>CustomerEmailDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -89,6 +97,11 @@
     <Compile Include="OrderProcessDataSet.vb">
       <DependentUpon>OrderProcessDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SalesDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -100,6 +113,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="CustomerEmailDataSet.xsc">
+      <DependentUpon>CustomerEmailDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CustomerEmailDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CustomerEmailDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="CustomerEmailDataSet.xss">
+      <DependentUpon>CustomerEmailDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -119,6 +143,17 @@
     </None>
     <None Include="OrderProcessDataSet.xss">
       <DependentUpon>OrderProcessDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SalesDataSet.xsc">
+      <DependentUpon>SalesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SalesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SalesDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="SalesDataSet.xss">
+      <DependentUpon>SalesDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

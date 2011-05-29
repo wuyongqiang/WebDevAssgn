@@ -28,7 +28,7 @@ namespace TestProject_Persist
             TOrderData ob = new TOrderData();
             ob.Configure();
 
-            TOrder od = ob.CreateOrder("test","order.Address", "order.Phone", "order.AddText");
+            TOrder od = ob.CreateOrder("test","order.Address", "order.Phone", "order.AddText",1);
             //od.Id = order.Id;
             //od.Name = order.Name;
             //od.OrderTime = order.OrderTime;
@@ -78,7 +78,7 @@ namespace TestProject_Persist
             TOrderData ob = new TOrderData();
             ob.Configure();
 
-            TOrder od = ob.CreateOrder("test", "order.Address", "order.Phone", "order.AddText");
+            TOrder od = ob.CreateOrder("test", "order.Address", "order.Phone", "order.AddText",1);
             //od.Id = order.Id;
             //od.Name = order.Name;
             //od.OrderTime = order.OrderTime;

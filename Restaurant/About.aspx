@@ -5,9 +5,11 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-        About
-    </h2>
+        This is the site map:</h2>
     <p>
-        Put content here.
+        Go back to the inn373 site <a href="Default.aspx">introduction</a>
+    </p>
+    <p>
+        <img src="gfx/sitemap.png" style="height: 100%; width: 100%" />
     </p>
 </asp:Content>

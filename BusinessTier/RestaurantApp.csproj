@@ -44,12 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MailBiz.cs" />
     <Compile Include="MyRoleProvider.cs" />
-    <Compile Include="OrderObj.cs" />
     <Compile Include="OrderProcessBiz.cs" />
     <Compile Include="RestaurantBiz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TOrderApp.cs" />
+    <Compile Include="SalesBiz.cs" />
+    <Compile Include="TOrderBiz.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessTier\DataAccessTier.vbproj">

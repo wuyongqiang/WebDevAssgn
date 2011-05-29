@@ -11,38 +11,27 @@ using System.Text;
 
 public partial class Order_OrderForm : System.Web.UI.Page
 {
-
-    public void ShowMessageBox(string message)
-    {
-        StringBuilder jsString = new StringBuilder();
-        jsString.Append("<script language='javascript'>");
-        jsString.AppendFormat("alert(\"{0}\");", message);
-        jsString.Append("</script>");
-        ClientScript.RegisterStartupScript(this.GetType(), "JScript", jsString.ToString());
-    }
-
     protected void Page_Load(object sender, EventArgs e)
     {
         
         if (!IsPostBack)
         {
+            btnSubmit.OnClientClick = "return confirm('Do you really want to submit this order?');";
             if (!Context.User.IsInRole("customer"))
             {
-                ShowMessageBox("not a customer");
+                Utils.ShowMessageBox(this, "not a customer,the order can't be submitted");
                 LabelRslt.Text = "The user is not a customer,the order can't be submitted";
-                return;
             }     
             
             DataTable dtOrder = (DataTable)Session["order"];
             if (dtOrder != null)
             {
-                for(int i=0;i<dtOrder.Rows.Count;i++)
+                for (int i = 0; i < dtOrder.Rows.Count; i++)
                     for (int j = 0; j < dtOrder.Columns.Count; j++)
                     {
-                        GvOrder1.TableOrder.Rows[i][j] = dtOrder.Rows[i][j];
+                        GvOrderDetail.TableOrder.Rows[i][j] = dtOrder.Rows[i][j];
                     }
             }
-
 
             // get the order types data
             foreach (TOrderType item in RestaurantBiz.AllOrderTypes)
@@ -66,20 +55,34 @@ public partial class Order_OrderForm : System.Web.UI.Page
     }
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        //
-
         if (!Context.User.IsInRole("customer"))
         {
-            ShowMessageBox("not a customer");
+            Utils.ShowMessageBox(this, "not a customer,the order can't be submitted");
             LabelRslt.Text = "The user is not a customer,the order can't be submitted";
             return;
         }
-
-        RestaurantApp.RestaurantBiz.saveOrder(Context.User.Identity.Name, tbName.Text, tbPhone.Text, tbAdd.Text, tbAddition.Text, Convert.ToInt64( ddlOrderType.SelectedValue), GvOrder1.TableOrder);
+        if (GvOrderDetail.TableOrder.Rows.Count == 0)
+        {
+            Utils.ShowMessageBox(this, "empty order");
+            return;
+        }
+        string promo = "";
+        long orderId = RestaurantApp.RestaurantBiz.saveOrder(ref promo, Context.User.Identity.Name, tbName.Text, tbPhone.Text, tbAdd.Text, tbAddition.Text, Convert.ToInt64( ddlOrderType.SelectedValue), GvOrderDetail.TableOrder);
 
         LabelRslt.Text = "Order submitted successfully";
+        if (!promo.Equals(""))
+            LabelRslt.Text += " "+ promo;
         btnSubmit.Enabled = false;
-        GvOrder1.TableOrder.Clear();
-        GvOrder1.Update();
+        GvOrderDetail.TableOrder.Clear();
+        GvOrderDetail.Update();
+        GvOrderDetail.Visible = false;
+        LinkButtonMyOrders.Visible = true;
+
+        Utils.ShowMessageBox(this, "Order submitted successfully.\\n" + promo + " \\nYou can click menu [my orders] to check status");
     }
+    protected void LinkButtonMyOrders_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Order/OrderList.aspx");
+    }
+    
 }

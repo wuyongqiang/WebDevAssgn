@@ -23,31 +23,11 @@
     }
 </style>
 <script type="text/javascript" src="../Scripts/jquery-1.4.1.min.js"></script>
-<script type="text/javascript">
-    $(function () {
-        $(window).scroll(
-            function () {
-               
-                $('#navigation1')
-                .stop()
-                .animate({
-                    top: $(document).scrollTop()
-                },
-                    {
-                        duration: 500,
-                        easing: 'easeOutBack'
-                    });
 
-            });
-
-    });
-
-</script>
 <div id="navigation">
     <asp:GridView ID="GvOrder" runat="server" AutoGenerateColumns="False" CellPadding="4"
-        ForeColor="#333333" GridLines="None" DataKeyNames="Id" OnRowCancelingEdit="GvOrder_RowCancelingEdit"
-        OnRowDeleted="GvOrder_RowDeleted" OnRowDeleting="GvOrder_RowDeleting" OnRowEditing="GvOrder_RowEditing"
-        OnRowUpdated="GvOrder_RowUpdated" OnRowUpdating="GvOrder_RowUpdating">
+        ForeColor="#333333" GridLines="None" DataKeyNames="Id"  OnRowDeleting="GvOrder_RowDeleting" OnRowEditing="GvOrder_RowEditing"
+        OnRowUpdating="GvOrder_RowUpdating">
         <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
         <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
         <Columns>

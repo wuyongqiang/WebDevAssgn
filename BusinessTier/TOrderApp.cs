@@ -25,6 +25,24 @@ namespace RestaurantApp
             Items = new List<TAppOrderItem>();
         }
 
+
+        public void ChipIn1For5()
+        {
+            int count = Items.Count;
+
+            for (int i = 0; i < count; i++)
+            {
+                int chipIn = ((int)Items[i].Amount) / 5;
+                if (chipIn > 0)
+                {
+                    TAppOrderItem chipInItem = new TAppOrderItem();
+                    chipInItem.Copy(Items[i]);
+                    chipInItem.Amount = chipIn;
+                    chipInItem.Price = 0;                    
+                    Items.Add(chipInItem);
+                }
+            }
+        }
     }
 
     public class TAppOrderItem
@@ -34,7 +52,11 @@ namespace RestaurantApp
         public string DishName{get;set;}
         public decimal Price{get;set;}
         public decimal Amount { get; set; }
-        public decimal SubPrice { get; set; }
+        public string SubPrice { 
+            get
+            {   
+                return (Amount * Price).ToString("F2"); }
+        }
         public string Text{get;set;}
         public TAppOrder Order{get;set;}
 
@@ -44,8 +66,7 @@ namespace RestaurantApp
             Id = item.Id;
             DishName = item.DishName;
             Price = item.Price;
-            Amount = item.Amount;
-            SubPrice = item.SubPrice;
+            Amount = item.Amount;           
             Text = item.Text;
             Order = item.Order;
         }

@@ -41,7 +41,7 @@ public partial class Test : System.Web.UI.Page
 
         RestaurantApp.TAppOrderItem item = new RestaurantApp.TAppOrderItem();
         item.DishName = " fried rice";
-        RestaurantApp.OrderObj.insertOrderItem((int)Session["SessionID"], item);
+        //RestaurantApp.OrderObj.insertOrderItem((int)Session["SessionID"], item);
 
      
 
@@ -76,5 +76,11 @@ public partial class Test : System.Web.UI.Page
         Panel1.Visible = false;
 
         TextBox1.Text = Calendar1.SelectedDate.ToString("yyyy-MM-dd");
+    }
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        // 
+
+        ScriptManager.RegisterStartupScript(this, typeof(Page), UniqueID, "alert('your message');", true);
     }
 }
