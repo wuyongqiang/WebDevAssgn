@@ -46,3 +46,5 @@ GO
 ALTER TABLE [dbo].[TOrder] CHECK CONSTRAINT [FK_TOrder_Status]
 GO
 
+#ALTER TABLE [dbo].[TOrder] CHECK CONSTRAINT [FK_TOrder_Status]
+#add the commented line only for testing
