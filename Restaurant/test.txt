@@ -3,3 +3,6 @@ should in branch [bt]
 merged into master
 
 should in branch [bt1]
+
+
+changes in bt2
